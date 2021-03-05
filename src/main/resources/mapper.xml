@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soldesk.order.menu.MapperMenu">
+
+<select id="getAllMenus" resultType="com.soldesk.order.menu.Menu_Vo">
+select*from Menu
+</select>
+	
+<insert id="regMenu" parameterType="com.soldesk.order.menu.Menu_Vo">
+insert into menu values (menu_seq.nextval,#{m_picture},#{m_name},#{m_price},#{m_quan})
+</insert>
+
+ <update id="updatePriceByNumber" parameterType="com.soldesk.order.menu.UpdateP">
+update menu set m_price= #{udprice}, m_name = #{udmn} where m_num = #{m_num}
+</update>
+
+<delete id="deleteMenu" parameterType="com.soldesk.order.menu.Menu_Vo">
+delete from menu where m_num = #{m_num}
+</delete>
+
+<!--
+<select id="getAllAsks" resultType="com.sj.faq.ask">
+select * from ask
+</select>
+
+<select id="showAsk" resultType="com.sj.faq.ask">
+select a_content from ask
+</select> -->
+
+</mapper>
