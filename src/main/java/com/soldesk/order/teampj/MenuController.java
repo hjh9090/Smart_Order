@@ -32,7 +32,7 @@ public class MenuController {
 		d.regMenu(mn,req);
 		d.getAllMenus(req);
 		
-		return "index";
+		return "menulist";
 		
 	}
 
@@ -50,7 +50,7 @@ public class MenuController {
 		d.updateMenu(updp,req);
 		d.getAllMenus(req);
 		
-		return "index";
+		return "menulist";
 		
 	}
 	
@@ -60,7 +60,7 @@ public class MenuController {
 		d.deleteMenu(mn,req);
 		d.getAllMenus(req);
 		
-		return "index";
+		return "menulist";
 		
 	}
 	
