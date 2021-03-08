@@ -17,10 +17,14 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest req) {
 		
-		d.getAllMenus(req);
 		return "index";
 	}
 
-
+	@RequestMapping(value = "menu", method = RequestMethod.GET)
+	public String menu(HttpServletRequest req) {
+		
+		d.getAllMenus(req);
+		return "menulist";
+	}
 	
 }
