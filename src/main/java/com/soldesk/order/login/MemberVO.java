@@ -1,17 +1,20 @@
 package com.soldesk.order.login;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class MemberVO {
 
 	private String id;
 	private String name;
 	private String gender;
 	private String email;
-	private String age;
+	private int age;
+	
 	public MemberVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public MemberVO(String id, String name, String gender, String email, String age) {
+	public MemberVO(String id, String name, String gender, String email, int age) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -43,10 +46,10 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	
