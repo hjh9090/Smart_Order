@@ -9,5 +9,9 @@
 </head>
 <body>
 
+<form action = "gopay" method = "post">
+<button>결제하기</button>
+</form>
+
 </body>
 </html>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>밥 먹으러 GO!</title>
 <!--  <script type="text/javascript" src="resources/map.js"></script>-->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ef243eba4a37959f8d19524f4e2209e9&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -48,17 +48,8 @@ var ps = new kakao.maps.services.Places();
 
 //키워드로 장소를 검색합니다
 function init(searchResult) {
-  // alert('장소 검색 들어옴')
-   //console.log(keyword);
    ps.keywordSearch(searchResult, placesSearchCB); 
 }
-
-
-// 키워드로 장소를 검색합니다
-//ps.keywordSearch( keyword, placesSearchCB); 
-
-
-
 
 // 키워드 검색 완료 시 호출되는 콜백함수 입니다
 function placesSearchCB (data, status, pagination) {
