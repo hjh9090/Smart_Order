@@ -1,5 +1,8 @@
 package com.soldesk.order.login;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class MemberVO {
 
 	private String id;
@@ -7,9 +10,9 @@ public class MemberVO {
 	private String gender;
 	private String email;
 	private String age;
+	
 	public MemberVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public MemberVO(String id, String name, String gender, String email, String age) {
 		super();
