@@ -2,6 +2,9 @@ package com.soldesk.order.menu;
 
 import java.math.BigDecimal;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class Menu_Vo {
 
 private BigDecimal m_num;
