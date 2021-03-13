@@ -99,5 +99,5 @@ delete from menu;
 
 
 
-select * from menu
+select * from menu;
 where m_name like '%투썸%';

@@ -98,8 +98,6 @@ public class DAO {
 
 	public void getcategory(Menu_Vo mn, HttpServletRequest req) {
 		
-			System.out.println("DAO에 들어왔습니다");
-		
 		try {
 			String m_name = req.getParameter("name");
 			System.out.println(m_name);

@@ -22,8 +22,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "map.go", method = RequestMethod.GET)
-	public String home1(HttpServletRequest req) {
-		
+	public String home1(HttpServletRequest req, HttpSession session) {
+		session.removeAttribute("name");
+		session.removeAttribute("price");
+		session.removeAttribute("res_name");
 		return "index";
 	}
 

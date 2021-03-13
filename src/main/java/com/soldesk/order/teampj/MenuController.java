@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.soldesk.order.menu.Menu_Vo;
 import com.soldesk.order.menu.UpdateP;
@@ -70,25 +71,20 @@ public class MenuController {
 
 	@RequestMapping(value = "getcategory.do", method = RequestMethod.GET)
 	public String category(Menu_Vo mn, HttpServletRequest req) {
-		logger.info("매뉴 조회 들어옴");
 		
 		d.getcategory(mn,req);
-		//d.deleteMenu(mn,req);
-		//d.getAllMenus(req);
 		
-		
-		
-		System.out.println("DAO실행 끝");
 		return "menu/menulist";
 		
 	}
 	
 	@RequestMapping(value = "detail.go", method = RequestMethod.GET)
-	public String detail(Menu_Vo mn, HttpServletRequest req) {
+	public String detail(Menu_Vo mn, HttpServletRequest req, @RequestParam("name")String name) {
 		
 		
+		String res_name = name;
+		req.setAttribute("res_name", res_name);
 		d.getmenu(mn,req);
-		
 		
 		return "menu/detailgo";
 	}

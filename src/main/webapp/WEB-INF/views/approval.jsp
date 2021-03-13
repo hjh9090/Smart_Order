@@ -19,7 +19,7 @@
 
 
 
-<form action="kakaopay" method = "GET">
+<form action="map.go" method = "GET">
 <button>홈으로</button>
 
 </form>

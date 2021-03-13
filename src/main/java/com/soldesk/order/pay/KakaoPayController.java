@@ -2,6 +2,9 @@ package com.soldesk.order.pay;
 
 import java.net.URI;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +46,14 @@ public class KakaoPayController {
 	
 	
 	@RequestMapping(value = "gopay", method = RequestMethod.POST)
-	public String kakaoPay() {
+	public String kakaoPay(HttpServletRequest request, HttpSession session) {
 		logger.info("카카오 페이에 들어옴");
 		HttpHeaders headers = new HttpHeaders();
+		String name = request.getParameter("name");
+		String price = request.getParameter("price");
+		String quan = request.getParameter("quan");
+		String res_name = request.getParameter("res_name");
+		
 		try {
 			String url = "https://kapi.kakao.com";
 			
@@ -60,13 +68,13 @@ public class KakaoPayController {
 			//결제 업체 코드
 			params.add("partner_order_id", "1001");
 			//결제 업체명
-			params.add("partner_user_id", "soldesk");
-			//물품명(parameter)
-			params.add("item_name", "아이스아메리카노");
-			//수량(parameter)
-			params.add("quantity", "1");
+			params.add("partner_user_id", res_name);
+			//물품명
+			params.add("item_name", name);
+			//수량
+			params.add("quantity", quan);
 			
-			params.add("total_amount", "4100");
+			params.add("total_amount", price);
 			
 			params.add("tax_free_amount", "3990");
 			
@@ -84,6 +92,9 @@ public class KakaoPayController {
 		kakaoready = resttemplate.postForObject(new URI(url + "/v1/payment/ready"), body, KakaoReadyVO.class);
 			System.out.println(kakaoready.getNext_redirect_pc_url().toString());
 			
+			session.setAttribute("name", name);
+			session.setAttribute("price", price);
+			session.setAttribute("res_name", res_name);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -95,11 +106,16 @@ public class KakaoPayController {
 	
 	
 	@RequestMapping(value = "approval", method = RequestMethod.GET)
-	public KakaoApprovalVO success(@RequestParam("pg_token")String pg_token, Model model) {
+	public KakaoApprovalVO success(@RequestParam("pg_token")String pg_token, Model model, HttpSession session) {
 		
 		logger.info("결제 승인");
 		
 		HttpHeaders headers = new HttpHeaders();
+		
+		String name = (String)session.getAttribute("name");
+		String price = (String)session.getAttribute("price");
+		String res_name = (String)session.getAttribute("res_name");
+		
 		try {
 			String url = "https://kapi.kakao.com";
 			
@@ -114,10 +130,10 @@ public class KakaoPayController {
 			params.add("cid", "TC0ONETIME");
 			params.add("tid", kakaoready.getTid());
 			params.add("partner_order_id", "1001");
-			params.add("partner_user_id", "soldesk"); // parameter
-			params.add("item_name", "아이스아메리카노"); // parameter
+			params.add("partner_user_id", res_name); 
+			params.add("item_name", name); // parameter
 			params.add("pg_token", pg_token);
-			params.add("total_amount", "4100"); // parameter
+			params.add("total_amount", price); // parameter
 			
 			HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String,String>>(params, headers);
 			

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>매뉴 화면</title>
+<title>${param.name} 매뉴 화면</title>
 <style type="text/css">
 #asdasd {
 	float: left;
@@ -31,7 +31,7 @@ function godetail () {
 	
 			<td>
 			<c:forEach var="m" items="${menus}">
-				<table id="asdasd" border="1" onclick="location.href = 'detail.go?m_num=${m.m_num}'">
+				<table id="asdasd" border="1" onclick="location.href = 'detail.go?m_num=${m.m_num}&name=${param.name}'">
 					<tr >
 						<td align="center" width="60px"><a href="updatemenu.go?m_num=${m.m_num}">${m.m_num}</a></td>
 					</tr>
