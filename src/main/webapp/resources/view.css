@@ -13,8 +13,40 @@ body{
  height: 100%;
 }
 
-
-.selectdiv, .sinput{
+.bapgo{
+	font-family: 'BMJUA';
 	
-margin: auto;	
 }
+
+.selectdiv{
+ position:absolute;
+ top:60%; 
+ left:42%;	
+ font-family: 'BMJUA';
+}
+
+#sinput{
+ position:absolute; 
+ top:65%; 
+ left:40%;
+ font-family: 'BMJUA';
+ }
+
+#search{
+  width:280px;
+  height:30px;
+  font-size:18px;
+  border-radius: 30px;
+  border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
