@@ -96,4 +96,60 @@ public class DAO {
 
 	}
 
+	public void getcategory(Menu_Vo mn, HttpServletRequest req) {
+		
+			System.out.println("DAO에 들어왔습니다");
+		
+		try {
+			String m_name = req.getParameter("name");
+			System.out.println(m_name);
+			
+			if(m_name.contains("교촌치킨")) {
+				mn.setM_category(new BigDecimal(1));
+			}else if (m_name.contains("얌샘김밥")) {
+				mn.setM_category(new BigDecimal(2));
+			}else if (m_name.contains("원할머니보쌈")) {
+				mn.setM_category(new BigDecimal(3));
+			}else if(m_name.contains("홍콩반점")) {
+				mn.setM_category(new BigDecimal(4));
+			}else if(m_name.contains("이비가짬뽕")) {
+				mn.setM_category(new BigDecimal(5));
+			}else if (m_name.contains("짬뽕지존")) {
+				mn.setM_category(new BigDecimal(6));
+			}else if(m_name.contains("돈돈정")) {
+				mn.setM_category(new BigDecimal(7));
+			}else if(m_name.contains("역전우동")) {
+				mn.setM_category(new BigDecimal(8));
+			}else if(m_name.contains("미소야")) {
+				mn.setM_category(new BigDecimal(9));
+			}else if(m_name.contains("투썸플레이스")) {
+				mn.setM_category(new BigDecimal(10));
+			}else if(m_name.contains("할리스")) {
+				mn.setM_category(new BigDecimal(11));
+			}else if(m_name.contains("스타벅스")) {
+				mn.setM_category(new BigDecimal(12));
+			}
+			
+		
+			req.setAttribute("menus", ss.getMapper(MapperMenu.class).getCategory(mn));
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void getmenu(Menu_Vo mn, HttpServletRequest req) {
+
+		String m_num =req.getParameter("m_num");
+		
+		mn.setM_num(new BigDecimal(m_num));
+		
+		req.setAttribute("menus", ss.getMapper(MapperMenu.class).showMenu(mn));
+		
+		
+		
+	}
+
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -9,8 +10,35 @@
 <!--  <script type="text/javascript" src="resources/map.js"></script>-->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ef243eba4a37959f8d19524f4e2209e9&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="resources/view.css">
+<script type="text/javascript" src="resources/map.js"></script>
 </head>
 <body>
+
+<script>
+function categoryChange(e) {
+  var food_kf = ["교촌치킨", "얌샘김밥", "원할머니보쌈"];
+  var food_cf = ["홍콩반점", "이비가짬뽕", "짬뽕지존"];
+  var food_jf = ["돈돈정", "미소야", "역전우동"];
+  var food_df =["투썸플레이스", "할리스커피", "스타벅스"];
+  var target = document.getElementById("food");
+
+
+  if(e.value == "kf") var d = food_kf;
+  else if(e.value == "cf") var d = food_cf;
+  else if(e.value == "jf") var d = food_jf;
+  else if(e.value == "df") var d = food_df;
+  target.options.length = 0;
+ 
+  for (x in d) {
+    var opt = document.createElement("option");
+    opt.value = d[x];
+    opt.innerHTML = d[x];
+    target.appendChild(opt);
+  } 
+}
+</script>
+
 
 
 <div id="map" style="width:100%;height:350px;"></div>
@@ -20,13 +48,16 @@ $(function () {
    $('#btn').on('click', function () {
       onFunc();
    });
-});
+}); 
 
 function onFunc() {
 	   var keyword = $('#search').val();
 	   var category = $('#category').val();
+	   var food = $('#food').val();
 	   // console.log(keyword);
-	   var searchResult = keyword + category ;
+	   
+	   var searchResult = food + keyword;
+	   
 	   init(searchResult);
 	}
 
@@ -70,6 +101,9 @@ function placesSearchCB (data, status, pagination) {
 
         for (var i=0; i<data.length; i++) {
             displayMarker(data[i]);    
+            
+           console.log(data[i]);
+            
             bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
         }       
 
@@ -92,25 +126,57 @@ function displayMarker(place) {
         // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
         infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
         infowindow.open(map, marker);
+        
+        var pName=place.place_name;
+        console.log(pName);
+        goToBack(pName);
     });
 }
 
 
+function goToBack(pName){
+	$.ajax({
+		url:"getcategory.do",
+		type: "get",
+		datatype :"text",
+		data:{name:pName},
+		
+		success : function(result){
+			alert(pName);
+ 			location.href = "getcategory.do?name=" + pName;
+		},
+		error: function(e){
+			alert(JSON.stringify(e));
+		}
+		
+	});
+}
 </script> 
 
-<select id="category">
-<option  value="daiso">다이소</option>
-<option value="starbucks">스타벅스</option>
-<option value="gs25">gs25</option>
-</select>
+<h1 class="bapgo">밥먹으러GO!</h1>
 
+
+
+
+<br>
+<div align="center" class="selectdiv">
+<select id="category" onchange="categoryChange(this)">
+  <option>음식을 선택하세요</option>
+  <option value="kf">한식</option>
+  <option value="cf">중식</option>
+  <option value="jf">일식</option>
+  <option value="df">카페</option>
+</select>
+ 
+<select id="food">
+<option>메뉴를 선택하세요</option>
+</select>
+</div>
+
+<div class="sinput" style="position: relative; top:60%; bottom: 40%; left:40%">
 <input type="text" id="search">
 <button id="btn">검색</button>
-
-<table width="100%" border="1">
-<tr><td>Web Smart Order</td></tr>
-
-</table>
+</div>
 
 
 </body>

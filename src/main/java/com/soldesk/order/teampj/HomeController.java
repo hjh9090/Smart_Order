@@ -1,6 +1,7 @@
 package com.soldesk.order.teampj;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,12 +20,33 @@ public class HomeController {
 		
 		return "index";
 	}
+	
+	@RequestMapping(value = "map.go", method = RequestMethod.GET)
+	public String home1(HttpServletRequest req) {
+		
+		return "index";
+	}
 
 	@RequestMapping(value = "menu", method = RequestMethod.GET)
 	public String menu(HttpServletRequest req) {
 		
 		d.getAllMenus(req);
-		return "menulist";
+		return "menu/menulist";
 	}
+	
+	@RequestMapping(value = "HomeController", method = RequestMethod.GET)
+	public String hc(String name ,HttpServletRequest req,HttpSession session) {
+		
+		System.out.println("직접 주는 놈 "+name);
+		String name2 = req.getParameter("name");
+		System.out.println("리퀘스트로 주는 놈 " + name2);
+		
+		session.setAttribute("gage", name);
+		
+		
+		return "";
+	}
+	
+	
 	
 }
