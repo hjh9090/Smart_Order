@@ -41,6 +41,8 @@ function categoryChange(e) {
 
 
 
+
+
 <div id="map" style="width:100%;height:350px;"></div>
 <script type="text/javascript">
 //제이 쿼리를 사용하기 위한 함수 준비
@@ -58,7 +60,9 @@ function onFunc() {
 	   
 	   var searchResult = food + keyword;
 	   
+		   
 	   init(searchResult);
+
 	}
 
 
@@ -144,14 +148,14 @@ function goToBack(pName){
 }
 </script> 
 
-<h1 class="bapgo">밥먹으러GO!</h1>
+<h1 class="bapgo" align="center">4팀 밥먹으러GO!</h1>
 
 
 
 
 <br>
 <div align="center" class="selectdiv">
-<select id="category" onchange="categoryChange(this)">
+<select style="font-family: 'BMJUA';" id="category" onchange="categoryChange(this)">
   <option>음식을 선택하세요</option>
   <option value="kf">한식</option>
   <option value="cf">중식</option>
@@ -159,15 +163,17 @@ function goToBack(pName){
   <option value="df">카페</option>
 </select>
  
-<select id="food">
+<select id="food" style="font-family:'BMJUA';">
 <option>메뉴를 선택하세요</option>
 </select>
 </div>
 
-<div class="sinput" style="position: relative; top:60%; bottom: 40%; left:40%">
-<input type="text" id="search">
-<button id="btn">검색</button>
+<div id="sinput">
+<input id="search" type="text" style="font-family: 'BMJUA';"  autofocus="autofocus" placeholder=" 찾으시는 지역명을 입력하세요!">
+<button style="font-family:'BMJUA';" id = "btn">검색</button>
 </div>
+
+ 
 
 
 </body>
