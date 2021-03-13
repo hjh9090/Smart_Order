@@ -18,6 +18,18 @@ update menu set m_price= #{udprice}, m_name = #{udmn} where m_num = #{m_num}
 delete from menu where m_num = #{m_num}
 </delete>
 
+
+<select id="getCategory" resultType="com.soldesk.order.menu.Menu_Vo">
+select * from menu where m_category = #{m_category}
+order by m_num
+</select>
+
+
+<select id="showMenu" resultType="com.soldesk.order.menu.Menu_Vo">
+select * from menu where m_num= #{m_num}
+</select>
+
+
 <!--
 <select id="getAllAsks" resultType="com.sj.faq.ask">
 select * from ask

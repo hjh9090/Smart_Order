@@ -2,6 +2,8 @@ package com.soldesk.order.teampj;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,8 @@ import com.soldesk.order.menu.UpdateP;
 public class MenuController {
 
 
+	public static final Logger logger = LoggerFactory.getLogger(MenuController.class);
+	
 	@Autowired
 	private DAO d;
 	
@@ -22,7 +26,7 @@ public class MenuController {
 	public String reg() {	
 	
 
-		return "regmenu";
+		return "menu/regmenu";
 	}
 
 
@@ -32,14 +36,14 @@ public class MenuController {
 		d.regMenu(mn,req);
 		d.getAllMenus(req);
 		
-		return "menulist";
+		return "menu/menulist";
 		
 	}
 
 	@RequestMapping(value = "updatemenu.go", method = RequestMethod.GET)
 	public String update() {	
 		
-		return "updatemenu";
+		return "menu/updatemenu";
 	}
 	
 	
@@ -50,7 +54,7 @@ public class MenuController {
 		d.updateMenu(updp,req);
 		d.getAllMenus(req);
 		
-		return "menulist";
+		return "menu/menulist";
 		
 	}
 	
@@ -60,10 +64,34 @@ public class MenuController {
 		d.deleteMenu(mn,req);
 		d.getAllMenus(req);
 		
-		return "menulist";
+		return "menu/menulist";
+		
+	}
+
+	@RequestMapping(value = "getcategory.do", method = RequestMethod.GET)
+	public String category(Menu_Vo mn, HttpServletRequest req) {
+		logger.info("매뉴 조회 들어옴");
+		
+		d.getcategory(mn,req);
+		//d.deleteMenu(mn,req);
+		//d.getAllMenus(req);
+		
+		
+		
+		System.out.println("DAO실행 끝");
+		return "menu/menulist";
 		
 	}
 	
+	@RequestMapping(value = "detail.go", method = RequestMethod.GET)
+	public String detail(Menu_Vo mn, HttpServletRequest req) {
+		
+		
+		d.getmenu(mn,req);
+		
+		
+		return "menu/detailgo";
+	}
 	
 	
 

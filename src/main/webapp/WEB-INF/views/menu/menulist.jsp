@@ -9,27 +9,34 @@
 <title>매뉴 화면</title>
 <style type="text/css">
 #asdasd {
-	float: right;
+	float: left;
 	margin: 40px;
 }
 </style>
 <script type="text/javascript" src="resources/menu.js"></script>
+<script type="text/javascript">
+function godetail () {
+	location.href = "detail";
+}
+
+</script>
 </head>
 <body>
 
+<a href='map.go'>맵으로</a>
+
 	<table border="1" width="100%" height="600px" >
 		
-		<tr>
-		<td>
+		<tr><td align="center" width="120px" height="80px"><h2>${param.name}</h2></td></tr>
+	
+			<td>
 			<c:forEach var="m" items="${menus}">
-				<table id="asdasd" border="1">
-					<tr>
+				<table id="asdasd" border="1" onclick="location.href = 'detail.go?m_num=${m.m_num}'">
+					<tr >
 						<td align="center" width="60px"><a href="updatemenu.go?m_num=${m.m_num}">${m.m_num}</a></td>
-				
 					</tr>
 					<tr>
-						<td align="center" width="200px"><img src="resources/menuimg/
-							${m.m_picture}" style="width: 120px; height: 120px"></td>
+						<td align="center" width="200px"><img src="${m.m_picture}" style="width: 120px; height: 120px"></td>
 					</tr>
 					<tr>
 						<td align="center" width="80px">${m.m_name}</td>
@@ -38,13 +45,14 @@
 						<td align="center" width="130px"><fmt:formatNumber
 								value="${m.m_price}" type="currency" /></td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<td align="center" width="80px">${m.m_quan}
-						<button onclick="deleteMenu('${m.m_num}')">메뉴삭제</button></td>
-					</tr>
+						
+					</tr> --%>
 				</table>
 
 			</c:forEach>
+			
 		</td>
 		</tr>
 
