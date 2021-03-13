@@ -33,6 +33,12 @@ public class LoginController {
 	@Autowired
 	private RestTemplate resttemplate;
 	
+	@Autowired
+	private MemberDAO dao;
+	
+	@Autowired
+	private MemberVO member;
+	
 	private static final Logger logger  = LoggerFactory.getLogger(LoginController.class);
 	
 	@RequestMapping(value = "login", method = RequestMethod.GET)
@@ -67,15 +73,36 @@ public class LoginController {
 		Map<String, Object> result = resttemplate.exchange("https://openapi.naver.com/v1/nid/me", HttpMethod.GET, entity, Map.class).getBody();
 		Map<String, String> naverInfo = (LinkedHashMap<String, String>) result.get("response");
 		
+		String id = naverInfo.get("id");
 		String name = naverInfo.get("name");
 		String email = naverInfo.get("email");
 		String gender = naverInfo.get("gender");
 		String birthday = naverInfo.get("birthday");
 		
+		System.out.println(id);
 		System.out.println(name);
 		System.out.println(email);
 		System.out.println(gender);
 		System.out.println(birthday);
+		
+		if(dao.getMember(id) != 1) {
+			
+			dao.insertMember(member);
+			session.setAttribute("Naver_id", id);
+			session.setAttribute("Naver_name", name);
+			session.setAttribute("Naver_email", email);
+			session.setAttribute("Naver_gender", gender);
+			session.setAttribute("Naver_birthday", birthday);
+			
+		} else if (dao.getMember(id) == 1) {
+			session.setAttribute("Naver_id", id);
+			session.setAttribute("Naver_name", name);
+			session.setAttribute("Naver_email", email);
+			session.setAttribute("Naver_gender", gender);
+			session.setAttribute("Naver_birthday", birthday);
+		}
+		
+		
 		
 		return "";
 		
@@ -85,7 +112,8 @@ public class LoginController {
 	@RequestMapping(value = "callbackGoo", method = RequestMethod.POST)
 	public String googleLogin (HttpServletRequest request, HttpSession httpsession) throws GeneralSecurityException, IOException {
 		logger.info("구글 로그인으로 들어왔음");
-		//api 통신을 위한 객체
+		
+				//api 통신을 위한 객체
 				NetHttpTransport transport = new NetHttpTransport();
 				//JSON 받아옴
 				JacksonFactory jacksonfactory = new JacksonFactory();
@@ -108,13 +136,9 @@ public class LoginController {
 					boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
 					String name = (String) payload.get("name");
 					String pictureUrl = (String) payload.get("picture");
-//					String locate = (String) payload.get("locate");
-//					String familyName = (String) payload.get("family_name");
-//					String givenName = (String) payload.get("given_name");
 					
-					
+					System.out.println(userId);
 					System.out.println(email);
-					System.out.println(emailVerified);
 					System.out.println(name);
 					System.out.println(pictureUrl);
 					

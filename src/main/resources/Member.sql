@@ -6,6 +6,12 @@ mem_email varchar2(50 char) not null,
 mem_age number(10) not null
 );
 
+create table Google (
+goo_id varchar2(50 char) primary key,
+goo_
+
+);
+
 
 select * from MEMBER;
 

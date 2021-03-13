@@ -10,7 +10,7 @@
 <body>
 
 <form action = "gopay" method = "post">
-<button>결제하기</button>
+<button><img src = "https://developers.kakao.com/tool/resource/static/img/button/pay/payment_icon_yellow_small.png"></button>
 </form>
 
 </body>

@@ -24,6 +24,15 @@ public class MemberDAO {
 		return result;
 	} // spring boot type
 	
-	
+	public int insertMember (MemberVO member) {
+		int result = 0;
+		MapperMember mapper = sqlsession.getMapper(MapperMember.class);
+		try {
+			result = mapper.insertMember(member);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	} // spring boot type 
 	
 }

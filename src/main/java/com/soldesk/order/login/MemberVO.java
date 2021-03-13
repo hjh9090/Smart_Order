@@ -9,12 +9,12 @@ public class MemberVO {
 	private String name;
 	private String gender;
 	private String email;
-	private int age;
+	private String age;
 	
 	public MemberVO() {
 		super();
 	}
-	public MemberVO(String id, String name, String gender, String email, int age) {
+	public MemberVO(String id, String name, String gender, String email, String age) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -46,10 +46,10 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 	
