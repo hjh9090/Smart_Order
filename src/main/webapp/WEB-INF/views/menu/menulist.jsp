@@ -82,7 +82,12 @@ function godetail () {
           <ul class="list-unstyled">
             <li><a href="map.go" class="text-white">주문하러 가기</a></li>
             <li><a href="review" class="text-white">리뷰 게시판</a></li>
+            <c:if test="${sessionScope.id == null}">
             <li><a href="login" class="text-white">로그인</a></li>
+            </c:if>
+            <c:if test="${sessionScope.id != null}">
+            <li><a href="logout" class="text-white">로그아웃</a></li>
+            </c:if>
           </ul>
         </div>
       </div>
@@ -149,6 +154,7 @@ function godetail () {
 	<button>메뉴등록</button>
 	</form>
 <!--  -->
+<hr>
 
 <footer class="text-muted py-5">
   <div class="container">

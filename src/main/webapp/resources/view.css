@@ -17,14 +17,12 @@
 }
 
 .selectdiv {
-  position: absolute;
   top: 60%;
   left: 42%;
   font-family: 'BMJUA';
 }
 
 #sinput {
-  position: absolute;
   top: 65%;
   left: 40%;
   font-family: 'BMJUA';
