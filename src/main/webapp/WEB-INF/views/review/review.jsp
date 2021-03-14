@@ -44,7 +44,9 @@
 				<td>${r.r_num}&nbsp;</td>
 				<td>${r.r_id}&nbsp;</td>
 				<td>${r.r_content}&nbsp;</td>
-		
+				<td><img src="resources/img/${r.r_picture}">&nbsp;</td>
+				<td><fmt:formatDate value="${r.r_date}" dateStyle="short"/></td>
+				
 				<%-- 
 				<td><button onclick="location.href='MovieUpdateController?no=${m.m_no}'">수정</button></td><hr>
 				<td><button onclick="updateMovie('${m.m_title}','${m.m_actor}','${m.m_story}','${m.m_no}');">수정2(js)</button></td><hr>
