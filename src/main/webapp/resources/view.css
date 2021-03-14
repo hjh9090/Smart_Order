@@ -1,52 +1,39 @@
 @charset "UTF-8";
 @font-face {
-    font-family: 'BMJUA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'BMJUA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-
-body{
- background-color: #dcedc8;
- width: 100%;
- height: 100%;
+.selectdiv,
+.sinput {
+  margin: auto;
 }
 
-.bapgo{
-	font-family: 'BMJUA';
-	
+.bapgo {
+  font-family: 'BMJUA';
 }
 
-.selectdiv{
- position:absolute;
- top:60%; 
- left:42%;	
- font-family: 'BMJUA';
+.selectdiv {
+  position: absolute;
+  top: 60%;
+  left: 42%;
+  font-family: 'BMJUA';
 }
 
-#sinput{
- position:absolute; 
- top:65%; 
- left:40%;
- font-family: 'BMJUA';
- }
+#sinput {
+  position: absolute;
+  top: 65%;
+  left: 40%;
+  font-family: 'BMJUA';
+}
 
-#search{
-  width:280px;
-  height:30px;
-  font-size:18px;
+#search {
+  width: 280px;
+  height: 30px;
+  font-size: 18px;
   border-radius: 30px;
   border: none;
 }
-
-
-
-
-
-
-
-
-
-
-

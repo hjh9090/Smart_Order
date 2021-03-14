@@ -48,6 +48,14 @@ public class LoginController {
 		
 		return "member/login";
 	}
+	
+	@RequestMapping(value = "login2", method = RequestMethod.GET)
+	public String login2() {
+		
+		logger.info("로그인 페이지로 들어 왔습니다.");
+		
+		return "member/login2";
+	}
 		
 	@RequestMapping(value = "callback", method = RequestMethod.GET)
 	public String naverLogin () {
