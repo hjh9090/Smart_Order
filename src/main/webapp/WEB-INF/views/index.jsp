@@ -226,8 +226,6 @@ function goToBack(pName){
 }
 </script> 
 
-<h1 class="bapgo" align="center">4팀 밥먹으러GO!</h1>
-
 <br>
 <div align="center" class="selectdiv">
 <select style="font-family: 'BMJUA';" id="category" onchange="categoryChange(this)">
@@ -247,9 +245,12 @@ function goToBack(pName){
 <input id="search" type="text" style="font-family: 'BMJUA';"  autofocus="autofocus" placeholder=" 찾으시는 지역명을 입력하세요!">
 <button style="font-family:'BMJUA';" id = "btn">검색</button>
 </div>
-
- 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <footer class="text-muted py-5">
   <div class="container">
