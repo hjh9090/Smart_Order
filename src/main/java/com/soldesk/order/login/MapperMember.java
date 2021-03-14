@@ -2,8 +2,8 @@ package com.soldesk.order.login;
 
 public interface MapperMember {
 	
-	public int insertMember (MemberVO member);
+	public Integer insertMember (MemberVO member);
 	
-	public int getMember (String id);
+	public Integer getMember (String mem_id);
 
 }

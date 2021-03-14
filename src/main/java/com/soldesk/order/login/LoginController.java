@@ -87,30 +87,28 @@ public class LoginController {
 		String gender = naverInfo.get("gender");
 		String birthday = naverInfo.get("birthday");
 		
-		System.out.println(id);
-		System.out.println(name);
-		System.out.println(email);
-		System.out.println(gender);
-		System.out.println(birthday);
-		
-		if(dao.getMember(id) != 1) {
-			
-			dao.insertMember(member);
-			session.setAttribute("Naver_id", id);
-			session.setAttribute("Naver_name", name);
-			session.setAttribute("Naver_email", email);
-			session.setAttribute("Naver_gender", gender);
-			session.setAttribute("Naver_birthday", birthday);
-			
-		} else if (dao.getMember(id) == 1) {
-			session.setAttribute("Naver_id", id);
-			session.setAttribute("Naver_name", name);
-			session.setAttribute("Naver_email", email);
-			session.setAttribute("Naver_gender", gender);
-			session.setAttribute("Naver_birthday", birthday);
-		}
-		
-		
+//		member.setMem_id(id);
+//		member.setMem_name(name);
+//		member.setMem_email(email);
+//		member.setMem_gender(gender);
+//		member.setMem_age(birthday);
+//		
+//		if(dao.getMember(id) == null) {
+//			
+//			dao.insertMember(member);
+			session.setAttribute("id", id);
+			session.setAttribute("name", name);
+			session.setAttribute("email", email);
+			session.setAttribute("gender", gender);
+			session.setAttribute("age", birthday);
+//			
+//		} else if (dao.getMember(id) != null) {
+//			session.setAttribute("Naver_id", id);
+//			session.setAttribute("Naver_name", name);
+//			session.setAttribute("Naver_email", email);
+//			session.setAttribute("Naver_gender", gender);
+//			session.setAttribute("Naver_age", birthday);
+//		}
 		
 		return "";
 		
@@ -137,8 +135,6 @@ public class LoginController {
 					//Print user identifier
 					String userId = payload.getSubject();
 					System.out.println("UserId : " + userId);
-					
-					
 					//Get profile information from payload
 					String email = payload.getEmail();
 					boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
@@ -150,12 +146,26 @@ public class LoginController {
 					System.out.println(name);
 					System.out.println(pictureUrl);
 					
+					httpsession.setAttribute("name", name);
+					httpsession.setAttribute("id", userId);
+					httpsession.setAttribute("email", email);
+					httpsession.setAttribute("pictureUrl", pictureUrl);
+					
 				} else {
 				System.out.println("Invalid ID token.");
 				}
 				return "";
 			}
 	
-	
+		
+		@RequestMapping(value = "logout", method = RequestMethod.GET)
+		public String logout(HttpSession session) {
+			
+			logger.info("로그아웃하였습니다.");
+			
+			session.invalidate();
+			
+			return "redirect:/";
+		}
 	
 }

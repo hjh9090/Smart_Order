@@ -3,7 +3,7 @@ mem_id varchar2(50 char) primary key,
 mem_name varchar2(100 char) not null,
 mem_gender varchar2(10 char) not null,
 mem_email varchar2(50 char) not null,
-mem_age number(10) not null
+mem_age varchar2(50 char) not null
 );
 
 create table Google (

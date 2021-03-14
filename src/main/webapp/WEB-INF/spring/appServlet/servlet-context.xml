@@ -44,6 +44,7 @@
 			<beans:list>
 				<beans:value>classpath:mapper.xml</beans:value>
 				<beans:value>classpath:ReviewMapper.xml</beans:value>
+				<beans:value>classpath:membermapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
