@@ -28,8 +28,8 @@
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url"
 			value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<beans:property name="username" value="oracle" />
-		<beans:property name="password" value="oracle" />
+		<beans:property name="username" value="ihj" />
+		<beans:property name="password" value="ihj" />
 	</beans:bean>
 
 	<beans:bean id="transactionManager"

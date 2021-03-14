@@ -6,6 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>${res_name}</title>
+<script type="text/javascript">
+var quan = document.getElementById('quan').value;
+
+
+
+</script>
 </head>
 <body>
 	<table border="1" width="100%" height="600px">
@@ -33,7 +39,7 @@
 									<option value="3">3</option>
 									<option value="4">4</option>
 									<option value="5">5</option>
-							</select><button>장바구니</button></td>
+							</select>
 						</tr>
 						<tr>
 							<td align="center"><button><img src = "https://developers.kakao.com/tool/resource/static/img/button/pay/payment_icon_yellow_small.png"></button></td>
@@ -44,6 +50,7 @@
 				</c:forEach>
 				<input type = "hidden" value = "${res_name}" name = "res_name">
 				</form>
+				<button onclick="location.href ='shoping.go?s_num=${m.m_num}&s_name=${m.m_name}&s_price=${m.m_price}&s_picture=${m.m_picture}&s_quan=${m.m_quan}'">장바구니</button></td>
 				</td>
 		</tr>
 
