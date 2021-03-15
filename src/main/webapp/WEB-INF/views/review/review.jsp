@@ -53,8 +53,9 @@ ${r}
 								<td colspan="2"><button>등록</button></td>
 							</tr>
 						</table>
-						<input type="hidden" name="r_num" value="${r_num}">
+						
 					</form>
+					
 				</div>
 
 				
@@ -68,7 +69,7 @@ ${r}
 								<td><fmt:formatDate value="${r.r_date}" dateStyle="short" /></td>
 								<td>${r.r_id}&nbsp;</td>
 								<td>${r.r_content}&nbsp;</td>
-								<td><img src="resources/img/${r.r_picture}">&nbsp;</td>
+								<td><img src="resources/reviewimg/${r.r_picture}">&nbsp;</td>
 
 								<%-- 
 				<td><button onclick="location.href='MovieUpdateController?no=${m.m_no}'">수정</button></td><hr>

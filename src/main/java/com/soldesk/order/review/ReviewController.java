@@ -17,14 +17,13 @@ public class ReviewController {
 	
 	@RequestMapping(value = "review", method = RequestMethod.GET)
 	public String review(Review rv, HttpServletRequest req) {
-		
+		HttpSession session = req.getSession();
 		d.getallreviews(rv, req);
 		return "review/review";
 	}
 	
 	@RequestMapping(value = "reg.review", method = RequestMethod.POST)
 	public String regreview(Review rv, HttpServletRequest request, HttpSession session) {
-		
 		d.regReview(rv,request,session);
 		d.getallreviews(rv, request);
 		return "review/review";

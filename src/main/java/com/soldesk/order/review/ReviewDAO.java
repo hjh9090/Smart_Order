@@ -39,7 +39,7 @@ public class ReviewDAO {
 
 			// request.getParameter("title"); 에서
 			String r_num = mr.getParameter("r_num");
-			String r_id = (String)session.getAttribute("name");
+			
 			String r_date = mr.getParameter("r_date");
 			String r_content = mr.getParameter("r_content");
 
@@ -49,8 +49,11 @@ public class ReviewDAO {
 
 			// ? 채우기 db에 만들었었으니까
 			rv.setR_content(r_content);
-			rv.setR_id(r_id);
+			System.out.println(r_content);
+			rv.setR_id((String)request.getSession().getAttribute("naverNAME"));
+			System.out.println((String)request.getSession().getAttribute("naverNAME"));
 			rv.setR_picture(r_picture);
+			System.out.println(r_picture);
 
 			request.setAttribute("reviews", ss.getMapper(ReviewMapper.class).getAllReviews(rv));
 			

@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
-import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 
@@ -92,7 +92,7 @@ public class LoginController {
 		member.setMem_email(email);
 		member.setMem_gender(gender);
 		member.setMem_age(birthday);
-		
+		request.getSession().setAttribute("naverNAME", name);
 		Integer result2 = dao.getMember(id);
 		
 		if(result2 == 0) {
@@ -104,12 +104,17 @@ public class LoginController {
 			session.setAttribute("gender", gender);
 			session.setAttribute("age", birthday);
 			
-		} else if (result2 == 1) {
-			session.setAttribute("Naver_id", id);
-			session.setAttribute("Naver_name", name);
-			session.setAttribute("Naver_email", email);
-			session.setAttribute("Naver_gender", gender);
-			session.setAttribute("Naver_age", birthday);
+			System.out.println(session.getAttribute("name"));
+			
+		} else {
+			dao.getMember(id);
+			session.setAttribute("id", id);
+			session.setAttribute("name", name);
+			session.setAttribute("email", email);
+			session.setAttribute("gender", gender);
+			session.setAttribute("age", birthday);
+			System.out.println(session.getAttribute("name"));
+			System.out.println(request.getSession().getAttribute("naverNAME"));
 		}
 		
 		return "";

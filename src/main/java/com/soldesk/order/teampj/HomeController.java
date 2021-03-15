@@ -15,11 +15,11 @@ public class HomeController {
 	private DAO d;
 	
 	
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public String home(HttpServletRequest req) {
-//		
-//		return "index";
-//	}
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(HttpServletRequest req) {
+		
+		return "index";
+	}
 	
 	@RequestMapping(value = "map.go", method = RequestMethod.GET)
 	public String home1(HttpServletRequest req, HttpSession session) {
