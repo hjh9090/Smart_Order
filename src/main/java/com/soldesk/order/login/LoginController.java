@@ -87,28 +87,30 @@ public class LoginController {
 		String gender = naverInfo.get("gender");
 		String birthday = naverInfo.get("birthday");
 		
-//		member.setMem_id(id);
-//		member.setMem_name(name);
-//		member.setMem_email(email);
-//		member.setMem_gender(gender);
-//		member.setMem_age(birthday);
-//		
-//		if(dao.getMember(id) == null) {
-//			
-//			dao.insertMember(member);
+		member.setMem_id(id);
+		member.setMem_name(name);
+		member.setMem_email(email);
+		member.setMem_gender(gender);
+		member.setMem_age(birthday);
+		
+		Integer result2 = dao.getMember(id);
+		
+		if(result2 == 0) {
+			
+			dao.insertMember(member);
 			session.setAttribute("id", id);
 			session.setAttribute("name", name);
 			session.setAttribute("email", email);
 			session.setAttribute("gender", gender);
 			session.setAttribute("age", birthday);
-//			
-//		} else if (dao.getMember(id) != null) {
-//			session.setAttribute("Naver_id", id);
-//			session.setAttribute("Naver_name", name);
-//			session.setAttribute("Naver_email", email);
-//			session.setAttribute("Naver_gender", gender);
-//			session.setAttribute("Naver_age", birthday);
-//		}
+			
+		} else if (result2 == 1) {
+			session.setAttribute("Naver_id", id);
+			session.setAttribute("Naver_name", name);
+			session.setAttribute("Naver_email", email);
+			session.setAttribute("Naver_gender", gender);
+			session.setAttribute("Naver_age", birthday);
+		}
 		
 		return "";
 		
@@ -141,15 +143,24 @@ public class LoginController {
 					String name = (String) payload.get("name");
 					String pictureUrl = (String) payload.get("picture");
 					
-					System.out.println(userId);
-					System.out.println(email);
-					System.out.println(name);
-					System.out.println(pictureUrl);
+					member.setMem_id(userId);
+					member.setMem_name(name);
+					member.setMem_email(email);
 					
-					httpsession.setAttribute("name", name);
-					httpsession.setAttribute("id", userId);
-					httpsession.setAttribute("email", email);
-					httpsession.setAttribute("pictureUrl", pictureUrl);
+					Integer result2 = dao.getMember(userId);
+					
+					if(result2 == 0) {
+						
+						dao.insertMember(member);
+						httpsession.setAttribute("id", userId);
+						httpsession.setAttribute("name", name);
+						httpsession.setAttribute("email", email);
+						
+					} else if (result2 == 1) {
+						httpsession.setAttribute("Naver_id", userId);
+						httpsession.setAttribute("Naver_name", name);
+						httpsession.setAttribute("Naver_email", email);
+					}
 					
 				} else {
 				System.out.println("Invalid ID token.");

@@ -10,8 +10,4 @@ select * from member where mem_id = #{mem_id}
 insert into member values (#{mem_id}, #{mem_name}, #{mem_gender}, #{mem_email}, #{mem_age})
 </insert>
 
-<!-- <delete id=""></delete> -->
-
-
-
 </mapper>

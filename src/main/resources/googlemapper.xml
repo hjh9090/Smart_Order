@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soldesk.order.login.MapperGoogle">
+
+<insert id="insertGoogle" parameterType="com.soldesk.order.login.GoogleVO">
+insert into google values (#{goo_id}, #{goo_name}, #{goo_email})
+</insert>
+
+<select id="getGoogle" parameterType="String" resultType="Integer">
+select * from google where goo_id = #{goo_id}
+</select>
+
+
+</mapper>
