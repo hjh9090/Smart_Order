@@ -53,6 +53,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
 
 <!--  <script type="text/javascript" src="resources/map.js"></script>-->
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ef243eba4a37959f8d19524f4e2209e9&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="resources/view.css">
@@ -241,7 +242,7 @@ function goToBack(pName){
 </select>
 </div>
 
-<div id="sinput">
+<div id="sinput" align="center">
 <input id="search" type="text" style="font-family: 'BMJUA';"  autofocus="autofocus" placeholder=" 찾으시는 지역명을 입력하세요!">
 <button style="font-family:'BMJUA';" id = "btn">검색</button>
 </div>

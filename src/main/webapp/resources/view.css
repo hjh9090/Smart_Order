@@ -17,14 +17,14 @@
 }
 
 .selectdiv {
-  position: absolute;
+  position: static;
   top: 60%;
   left: 42%;
   font-family: 'BMJUA';
 }
 
 #sinput {
-  position: absolute;
+  position: static;
   top: 65%;
   left: 40%;
   font-family: 'BMJUA';
@@ -37,3 +37,6 @@
 /*   border-radius: 30px; */
   border: 1;
 }
+
+
+

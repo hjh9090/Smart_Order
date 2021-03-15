@@ -6,4 +6,9 @@
 select * from Review
 </select>
 
+<insert id="regReview" parameterType="com.soldesk.order.review.Review" >
+insert into review values (review_seq.nextval,#{r_id},#{r_content},#{r_picture})
+</insert>
+
+
 </mapper>

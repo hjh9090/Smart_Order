@@ -1,6 +1,7 @@
 package com.soldesk.order.review;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,13 +16,22 @@ public class ReviewController {
 	
 	
 	@RequestMapping(value = "review", method = RequestMethod.GET)
-	public String review(HttpServletRequest req) {
+	public String review(Review rv, HttpServletRequest req) {
 		
-		d.getallreviews(req);
+		d.getallreviews(rv, req);
+		return "review/review";
+	}
+	
+	@RequestMapping(value = "reg.review", method = RequestMethod.POST)
+	public String regreview(Review rv, HttpServletRequest request, HttpSession session) {
+		
+		d.regReview(rv,request,session);
+		d.getallreviews(rv, request);
 		return "review/review";
 	}
 	
 	
+
 	
 	
 	
