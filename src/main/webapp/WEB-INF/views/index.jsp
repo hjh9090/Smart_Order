@@ -104,6 +104,7 @@ function categoryChange(e) {
             <c:if test="${sessionScope.id != null}">
             <li><a href="logout" class="text-white">로그아웃</a></li>
             </c:if>
+            <li><a href="faq" class="text-white">자주묻는질문</a></li>
           </ul>
         </div>
       </div>
