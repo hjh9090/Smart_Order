@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.soldesk.order.shopping.ShoppingMapper">
-<insert id="insertshopping" parameterType="com.soldesk.order.shopping.ShoppingVo">
+
+<insert id="insertShopping" parameterType="com.soldesk.order.shopping.ShoppingVo">
 insert into shopping values (#{s_num}, #{s_picture}, #{s_name}, #{s_price}, #{s_quan})
 </insert>
-<select id="selectshopping" parameterType="com.soldesk.order.shopping.ShoppingVo">
+
+<select id="getAllList" parameterType="com.soldesk.order.shopping.ShoppingVo" resultType="com.soldesk.order.shopping.ShoppingVo">
 select * from shopping order by s_num DESC
 </select>
-<delete id="deleteshopping" parameterType="com.soldesk.order.shopping.ShoppingVo">
+
+<delete id="deleteMenu" parameterType="com.soldesk.order.shopping.ShoppingVo">
 delete from shopping where s_num = #{s_num}
 </delete>
+
 </mapper>

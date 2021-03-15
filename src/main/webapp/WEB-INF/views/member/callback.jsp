@@ -38,7 +38,7 @@ function SendToken () {
 		});
 }
 function init() {
-	location.href = "../order/";
+	location.href = "map.go";
 }
 </script>
 

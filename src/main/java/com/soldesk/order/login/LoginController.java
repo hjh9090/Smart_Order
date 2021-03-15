@@ -165,7 +165,7 @@ public class LoginController {
 			
 			session.invalidate();
 			
-			return "redirect:/";
+			return "redirect:map.go";
 		}
 	
 }

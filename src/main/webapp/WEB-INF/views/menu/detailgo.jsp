@@ -55,6 +55,24 @@ bootstrap style
         }
       }
 </style>
+
+<script type="text/javascript">
+$(function () {
+	$('#cart').on('click', function () {
+		var s_num = $('#num').val();
+		var s_name = $('#name').val();
+		var s_price = $('#price').val();
+		var s_quan = $('#quan').val();
+		var s_picture = $('#picture').val();
+		
+		
+		location.href = "shopping.go?s_num=" + s_num + "&s_name=" + s_name + "&s_price=" + s_price + "&s_quan=" + s_quan + "&s_picture=" + s_picture;
+		
+	});
+});
+
+</script>
+
 </head>
 <body>
 <header>
@@ -125,15 +143,19 @@ bootstrap style
 							<td align="center"><button><img src = "https://developers.kakao.com/tool/resource/static/img/button/pay/payment_icon_yellow_small.png"></button></td>
 						</tr>
 					</table>
-					<input type = "hidden" value = "${m.m_name}" name = "name">
-					<input type = "hidden" value ="${m.m_price}" name = "price">
+					<input type = "hidden" value = "${m.m_name}" name = "name" id = "name">
+					<input type = "hidden" value ="${m.m_price}" name = "price" id = "price">
+					<input type = "hidden" value = "${m.m_num}" name = "num" id = "num">
+					<input type = "hidden" value = "${m.m_picture}" name = "picture" id = "picture">
 				</c:forEach>
-				<input type = "hidden" value = "${res_name}" name = "res_name">
+				<input type = "hidden" value = "${res_name}" name = "res_name" id = "res_name">
 				</form>
-				<button onclick="location.href ='shoping.go?s_num=${m.m_num}&s_name=${m.m_name}&s_price=${m.m_price}&s_picture=${m.m_picture}&s_quan=${m.m_quan}'">장바구니</button></td>
-				</td>
-		</tr>
+				<button id = "cart">장바구니에 넣기</button></td>
+				</tr>
 	</table>
+<!-- 	<form action="shoping.go" method = "get"> -->
+		
+<!-- 	</form> -->
 	
 	<footer class="text-muted py-5">
   <div class="container">

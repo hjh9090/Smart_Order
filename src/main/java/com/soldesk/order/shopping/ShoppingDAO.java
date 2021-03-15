@@ -1,15 +1,17 @@
 package com.soldesk.order.shopping;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.function.BiConsumer;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+@Service
 public class ShoppingDAO {
 	
 	@Autowired
@@ -18,16 +20,11 @@ public class ShoppingDAO {
 	public void shopping(HttpServletRequest req, ShoppingVo sv) {
 		
 		try {
-			String saveDirectory = req.getSession().getServletContext().getRealPath("resources/menuimg");
-			System.out.println(saveDirectory);
 
-			MultipartRequest mr = new MultipartRequest(req, saveDirectory, 31457280, "utf-8",
-					new DefaultFileRenamePolicy());
-
-			String s_picture = mr.getParameter("s_picture");
-			String s_name = mr.getParameter("s_name");
-			String s_price = mr.getParameter("s_price");
-			String s_quan = mr.getParameter("s_quan");
+			String s_picture = req.getParameter("s_picture");
+			String s_name = req.getParameter("s_name");
+			String s_price = req.getParameter("s_price");
+			String s_quan = req.getParameter("s_quan");
 
 			sv.setS_picture(s_picture);
 			sv.setS_name(s_name);
@@ -38,17 +35,34 @@ public class ShoppingDAO {
 				System.out.println("성공");
 				req.setAttribute("r", "등록성공");
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 
-	public void getlist(HttpServletRequest req, ShoppingVo sv) {
-		req.setAttribute("shopping", gs.getMapper(ShoppingMapper.class).getAllList(sv));
-
+	public List<ShoppingVo> getlist(HttpServletRequest req, ShoppingVo sv) {
 		
+		List<ShoppingVo> list = gs.getMapper(ShoppingMapper.class).getAllList(sv);
+		
+		req.setAttribute("shopping", gs.getMapper(ShoppingMapper.class).getAllList(sv));
+		
+		return list;
+	}
+	
+	public void deleteMenu (HttpServletRequest req, ShoppingVo vo) {
+		
+		String s_num = req.getParameter("s_num");
+		try {
+			
+			vo.setS_num(new BigDecimal(s_num));
+			
+			if(gs.getMapper(ShoppingMapper.class).deleteMenu(vo) == 1) {
+				System.out.println("삭제 완료");
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 }

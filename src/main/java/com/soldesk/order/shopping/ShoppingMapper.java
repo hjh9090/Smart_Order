@@ -9,5 +9,7 @@ public interface ShoppingMapper {
 	
 	public int insertShopping (ShoppingVo vo);
 	
+	public int deleteMenu (ShoppingVo vo);
+	
 
 }
