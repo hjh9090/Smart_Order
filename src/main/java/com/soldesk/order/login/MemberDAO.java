@@ -40,6 +40,11 @@ public class MemberDAO {
 	} // spring boot type 
 	
 	
+	/*
+	 * Google DB연동
+	 * */
+	
+	
 	public int getGoogle (String goo_id) {
 		int result = 0;
 		MapperGoogle mapper = sqlsession.getMapper(MapperGoogle.class);

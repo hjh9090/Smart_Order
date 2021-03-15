@@ -96,20 +96,20 @@ public class LoginController {
 		Integer result2 = dao.getMember(id);
 		
 		if(result2 == 0) {
-			
 			dao.insertMember(member);
-			session.setAttribute("id", id);
-			session.setAttribute("name", name);
-			session.setAttribute("email", email);
-			session.setAttribute("gender", gender);
-			session.setAttribute("age", birthday);
+			request.getSession().setAttribute("Naver_id", id);
+			request.getSession().setAttribute("Naver_name", name);
+			request.getSession().setAttribute("Naver_email", email);
+			request.getSession().setAttribute("Naver_gender", gender);
+			request.getSession().setAttribute("Naver_age", birthday);
 			
-		} else if (result2 == 1) {
-			session.setAttribute("Naver_id", id);
-			session.setAttribute("Naver_name", name);
-			session.setAttribute("Naver_email", email);
-			session.setAttribute("Naver_gender", gender);
-			session.setAttribute("Naver_age", birthday);
+		} else {
+			dao.getMember(id);
+			request.getSession().setAttribute("id", id);
+			request.getSession().setAttribute("name", name);
+			request.getSession().setAttribute("email", email);
+			request.getSession().setAttribute("gender", gender);
+			request.getSession().setAttribute("age", birthday);
 		}
 		
 		return "";
@@ -118,7 +118,7 @@ public class LoginController {
 	
 	
 	@RequestMapping(value = "callbackGoo", method = RequestMethod.POST)
-	public String googleLogin (HttpServletRequest request, HttpSession httpsession) throws GeneralSecurityException, IOException {
+	public String googleLogin (HttpServletRequest request, HttpSession session) throws GeneralSecurityException, IOException {
 		logger.info("구글 로그인으로 들어왔음");
 		
 				//api 통신을 위한 객체
@@ -147,19 +147,19 @@ public class LoginController {
 					member.setMem_name(name);
 					member.setMem_email(email);
 					
-					Integer result2 = dao.getMember(userId);
+					Integer result2 = dao.getGoogle(userId);
 					
 					if(result2 == 0) {
 						
 						dao.insertMember(member);
-						httpsession.setAttribute("id", userId);
-						httpsession.setAttribute("name", name);
-						httpsession.setAttribute("email", email);
+						request.getSession().setAttribute("Google_id", userId);
+						request.getSession().setAttribute("Google_name", name);
+						request.getSession().setAttribute("Google_email", email);
 						
 					} else if (result2 == 1) {
-						httpsession.setAttribute("Naver_id", userId);
-						httpsession.setAttribute("Naver_name", name);
-						httpsession.setAttribute("Naver_email", email);
+						request.getSession().setAttribute("Google_id", userId);
+						request.getSession().setAttribute("Google_name", name);
+						request.getSession().setAttribute("Google_email", email);
 					}
 					
 				} else {
