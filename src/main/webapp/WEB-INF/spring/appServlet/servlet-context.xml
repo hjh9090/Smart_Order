@@ -28,8 +28,8 @@
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url"
 			value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<beans:property name="username" value="sj" />
-		<beans:property name="password" value="sj" />
+		<beans:property name="username" value="ihj" />
+		<beans:property name="password" value="ihj" />
 	</beans:bean>
 
 	<beans:bean id="transactionManager"
@@ -47,6 +47,7 @@
 				<beans:value>classpath:membermapper.xml</beans:value>
 				<beans:value>classpath:ShoppingMapper.xml</beans:value>
 				<beans:value>classpath:googlemapper.xml</beans:value>
+				<beans:value>classpath:faqmapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>

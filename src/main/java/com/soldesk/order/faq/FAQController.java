@@ -1,35 +1,38 @@
 package com.soldesk.order.faq;
 
-import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/faq/*")
 public class FAQController {
 
 	private static final Logger logger = LoggerFactory.getLogger(FAQController.class);
-
-	@Inject
-	FAQLService service;
 	
-	@RequestMapping(value = "/faq/faq", method = RequestMethod.GET)
-	public void writeView() throws Exception{
+	@Autowired
+	private FAQDAO dao;
+	
+	@RequestMapping(value = "faq", method = RequestMethod.GET)
+	public String writeView(HttpServletRequest request, FAQVo vo){
 		logger.info("faq");
-		
+		dao.getAllList(request, vo);
+		return "faq";
 	}
 	
-	@RequestMapping(value = "/faq/faq", method = RequestMethod.POST)
-	public String write(FAQVo faqVo) throws Exception{
-		logger.info("faq");
-		
-		service.faq(faqVo);
-		
-		return "faq/faq";
+	
+	@RequestMapping(value = "regfaq", method = RequestMethod.POST)
+	public String write(HttpServletRequest request, FAQVo vo){
+		logger.info("작성");
+		dao.insertFaq(request, vo);
+		dao.getAllList(request, vo);
+		return "redirect:faq";
 	}
+	
+	
 
 }

@@ -7,4 +7,4 @@ insert into faq(faq_f, faq_q)
 values ('제목', '내용')
 
 select * from faq;
-commit;
+
