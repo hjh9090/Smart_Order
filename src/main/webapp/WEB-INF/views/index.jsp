@@ -98,6 +98,7 @@ function categoryChange(e) {
             <li><a href="map.go" class="text-white">주문하러 가기</a></li>
             <li><a href="review" class="text-white">리뷰 게시판</a></li>
             <li><a href="login" class="text-white">로그인</a></li>
+            <li><a href="faq" class="text-white">자주묻는질문</a></li>
           </ul>
         </div>
       </div>

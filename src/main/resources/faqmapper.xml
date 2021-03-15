@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soldesk.order.faq">
+<insert id="insert" parameterType="com.soldesk.order.faq.FAQ">
+insert into faq values(#{faq_f}, #{faq_q})
+</insert>
+<select id="select" parameterType="com.soldesk.order.faq.FAQ">
+select * from faq
+</select>
+</mapper>

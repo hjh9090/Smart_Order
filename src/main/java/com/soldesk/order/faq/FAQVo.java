@@ -2,55 +2,33 @@ package com.soldesk.order.faq;
 
 public class FAQVo {
 
-	private int num;
-	private String id;
-	private String content;
-	private String picture;
-	
+	private String f;
+	private String q;
+
+	public FAQVo(String f, String q) {
+		super();
+		this.f = f;
+		this.q = q;
+	}
+
 	public FAQVo() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public FAQVo(int num, String id, String content, String picture) {
-		super();
-		this.num = num;
-		this.id = id;
-		this.content = content;
-		this.picture = picture;
+	public String getF() {
+		return f;
 	}
 
-	public int getNum() {
-		return num;
+	public void setF(String f) {
+		this.f = f;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public String getQ() {
+		return q;
 	}
 
-	public String getId() {
-		return id;
+	public void setQ(String q) {
+		this.q = q;
 	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public String getPicture() {
-		return picture;
-	}
-
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
-	
-	
 
 }
