@@ -46,6 +46,7 @@
 				<beans:value>classpath:ReviewMapper.xml</beans:value>
 				<beans:value>classpath:membermapper.xml</beans:value>
 				<beans:value>classpath:ShoppingMapper.xml</beans:value>
+				<beans:value>classpath:googlemapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
