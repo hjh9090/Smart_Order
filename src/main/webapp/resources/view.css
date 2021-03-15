@@ -17,12 +17,14 @@
 }
 
 .selectdiv {
+  position: static;
   top: 60%;
   left: 42%;
   font-family: 'BMJUA';
 }
 
 #sinput {
+  position: static;
   top: 65%;
   left: 40%;
   font-family: 'BMJUA';
@@ -32,6 +34,6 @@
   width: 280px;
   height: 30px;
   font-size: 18px;
-/*   border-radius: 30px; */
+  /*   border-radius: 30px; */
   border: 1;
 }
