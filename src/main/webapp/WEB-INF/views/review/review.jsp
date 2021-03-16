@@ -9,24 +9,10 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="resources/review.js"></script>
 <style type="text/css">
-#rreg {
-	position: fixed;
-	left: 20px;
-	top: 300px;
-}
 
-#content {
-	position: absolute;
-	left: 420px;
-	top: 200px;
-}
-
-td{
-padding: 15px;
-}
 
 .tdnum{
-width: 45px;
+width: 50px;
 }
 
 
@@ -46,14 +32,14 @@ width: 400px;
 
 
 
-	<table>
+	<table style="margin-left: auto; margin-right: auto;">
 		<tr>
 	
 			<td>
-				<div id="rreg">
+				<div id="rreg" align="center">
 				<form action="search.review">
 					<div>
-						리뷰내용 <input name="r_content">
+						리뷰 내용으로 찾기 <input name="r_content">
 						<button>검색</button>
 					</div>
 				</form><p>
@@ -71,10 +57,10 @@ width: 400px;
 								<td><input type="file" name="r_picture"></td>
 							</tr>
 							<tr>
-								<td colspan="2"><button>등록</button><h3>${r}</h3></td>
+								<td colspan="2" align="center"><button>등록</button></td>
 							</tr>
 						</table>
-						
+						<p>
 					</form>
 					
 				</div>
@@ -102,33 +88,6 @@ width: 400px;
 			
 		
 	</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

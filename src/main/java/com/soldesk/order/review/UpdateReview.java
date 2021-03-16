@@ -1,5 +1,8 @@
 package com.soldesk.order.review;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class UpdateReview {
 
 	private String u_content;
