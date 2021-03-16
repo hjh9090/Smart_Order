@@ -113,6 +113,9 @@ $(function () {
     </div>
   </div>
 </header>
+<br>
+<br>
+<br>
 	 <div align="center">
 	 <form action="cartpay" method = "POST">
 	 <c:set var = "total_price" value = "0"/>
@@ -123,10 +126,17 @@ $(function () {
 	<table border="1">
 		<tr>
 			<td><img src = "${cart.s_picture}" width = "40%" height = "100px"></td>
+
 			<td style="font-family: 'BMJUA';"> 메뉴 이름 : ${cart.s_name} / </td>
 			<td style="font-family: 'BMJUA';"> 가격 : ${cart.s_price} / </td>
 			<td style="font-family: 'BMJUA';"> 수량 : ${cart.s_quan} / </td>
 			<td style="font-family: 'BMJUA';"> / <button type = "button" onclick="delcart?s_num=${cart.s_num}">메뉴 삭제</button></td>
+
+			<td> 메뉴 이름 : ${cart.s_name} / </td>
+			<td> 가격 : ${cart.s_price} / </td>
+			<td> 수량 : ${cart.s_quan} / </td>
+			<td><button id = "delete">메뉴 삭제</button></td>
+
 		</tr>
 	</table>
 		<input type = "hidden" value = "${cart.s_num}" id = "num">
@@ -134,13 +144,19 @@ $(function () {
 <%-- 		<input type = "hidden" value = "${total_quan}" id= "quan"> --%>
 		<input type = "hidden" value = "${cart.s_name}">
 </c:forEach>
+
 		<input type = "hidden" value = "${total_price}" name= "price">
 		<input type = "hidden" value = "${total_quan}" name= "quan">
 		<button style="font-family: 'BMJUA';">주문하기</button>
+
+<br>
+
 	</form>
 	 </div>
 	 
 <hr>
+<br>
+<br>
 <footer class="text-muted py-5">
   <div class="container">
     <p class="float-end mb-1">
