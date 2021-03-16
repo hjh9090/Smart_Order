@@ -22,7 +22,9 @@ public class ShoppingController {
 	
 	@RequestMapping(value = "delcart", method = RequestMethod.GET)
 	public String delMenu(HttpServletRequest req, ShoppingVo sv) {
+		System.out.println("삭제 들어옴");
 		d.deleteMenu(req, sv);
-		return "redirect:/shopping/shopping";
+		d.getlist(req, sv);
+		return "redirect:shopping/shopping";
 	}
 }

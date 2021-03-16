@@ -35,6 +35,7 @@
 
 <script type="text/javascript" src="resources/menu.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="resources/view.css">
 <meta charset="UTF-8">
 <title>${res_name}</title>
 <style type="text/css">
@@ -64,11 +65,21 @@ $(function () {
 		var s_price = $('#price').val();
 		var s_quan = $('#quan').val();
 		var s_picture = $('#picture').val();
-		
-		
+		if(s_quan == '수량을 선택하세요'){
+			alert('수량을 선택해 주세요');
+		} else {
 		location.href = "shopping.go?s_num=" + s_num + "&s_name=" + s_name + "&s_price=" + s_price + "&s_quan=" + s_quan + "&s_picture=" + s_picture;
-		
+		}
 	});
+	
+	$('#pay').on('click', function () {
+		var s_quan = $('#quan').val();
+		if(s_quan == '수량을 선택하세요') {
+			alert('수량을 선택해 주세요');
+			$('#onForm').attr()
+		}
+	});
+	
 });
 
 </script>
@@ -94,6 +105,7 @@ $(function () {
             <c:if test="${sessionScope.id != null}">
             <li><a href="logout" class="text-white">로그아웃</a></li>
             </c:if>
+            <li><a href="faq" class="text-white">자주묻는질문</a></li>
           </ul>
         </div>
       </div>
@@ -116,22 +128,21 @@ $(function () {
 	<table border="1" width="100%" height="600px">
 		<tr>
 			<td align="center">
-			<form action="gopay" method = "POST">
+			<form action="gopay" method = "POST" id = "onForm">
 			<c:forEach var="m" items="${menus}">
-					<table border="1" width="600px" height="350px">
+					<table border="2" width="600px" height="350px">
 						<tr>
 							<td rowspan="5" width="300px" align="center"><img
 								src="${m.m_picture}" style="width: 300px; height: 300px"></td>
 						</tr>
 						<tr>
-							<td align="center"><h3>${m.m_name}</h3></td>
+							<td align="center" style="font-family: 'BMJUA';"><h3>${m.m_name}</h3></td>
 						</tr>
 						<tr>
-							<td align="center"><h3>${m.m_price}원</h3></td>
+							<td align="center" style="font-family: 'BMJUA';"><h3>${m.m_price}원</h3></td>
 						</tr>
 						<tr>
-							<td align="center"><select id="quan" name = "quan">
-									<option>수량을 선택하세요</option>
+							<td align="center" style="font-family: 'BMJUA';">수량 : <select id="quan" name = "quan">
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -140,7 +151,7 @@ $(function () {
 							</select>
 						</tr>
 						<tr>
-							<td align="center"><button><img src = "https://developers.kakao.com/tool/resource/static/img/button/pay/payment_icon_yellow_small.png"></button></td>
+							<td align="center"><button id = "pay"><img src = "https://developers.kakao.com/tool/resource/static/img/button/pay/payment_icon_yellow_small.png"></button></td>
 						</tr>
 					</table>
 					<input type = "hidden" value = "${m.m_name}" name = "name" id = "name">
@@ -150,7 +161,7 @@ $(function () {
 				</c:forEach>
 				<input type = "hidden" value = "${res_name}" name = "res_name" id = "res_name">
 				</form>
-				<button id = "cart">장바구니에 넣기</button></td>
+				<button id = "cart" style="font-family: 'BMJUA';">장바구니에 넣기</button></td>
 				</tr>
 	</table>
 <!-- 	<form action="shoping.go" method = "get"> -->

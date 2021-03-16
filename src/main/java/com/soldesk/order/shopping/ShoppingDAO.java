@@ -53,7 +53,6 @@ public class ShoppingDAO {
 		
 		String s_num = req.getParameter("s_num");
 		try {
-			
 			vo.setS_num(new BigDecimal(s_num));
 			
 			if(gs.getMapper(ShoppingMapper.class).deleteMenu(vo) == 1) {
@@ -63,6 +62,13 @@ public class ShoppingDAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+	}
+	
+	public void allDel (ShoppingVo vo) {
+		
+		gs.getMapper(ShoppingMapper.class).allDel(vo); 
+			System.out.println("주문이 완료 됨");
+		
 	}
 
 }
