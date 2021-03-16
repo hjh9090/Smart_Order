@@ -75,6 +75,9 @@ public class ReviewDAO {
 		
 			if (ss.getMapper(ReviewMapper.class).deleteReviewByNumber(rv) == 1) {
 				request.setAttribute("r", "삭제 성공!");
+
+				request.setAttribute("r", "등록에 성공하였습니다");
+
 			}
 
 		} catch (Exception e) {

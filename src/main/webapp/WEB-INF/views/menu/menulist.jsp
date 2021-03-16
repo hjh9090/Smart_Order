@@ -12,6 +12,10 @@
 	float: left;
 	margin: 40px;
 }
+
+.col {
+cursor: pointer;
+}
 /*
 bootstrap style
 */
@@ -61,6 +65,7 @@ bootstrap style
 
 <script type="text/javascript" src="resources/menu.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="resources/view.css">
 <script type="text/javascript">
 function godetail () {
 	location.href = "detail";
@@ -88,6 +93,7 @@ function godetail () {
             <c:if test="${sessionScope.id != null}">
             <li><a href="logout" class="text-white">로그아웃</a></li>
             </c:if>
+            <li><a href="faq" class="text-white">자주묻는질문</a></li>
           </ul>
         </div>
       </div>
@@ -123,21 +129,27 @@ function godetail () {
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <!-- menulist -->
       <c:forEach var="m" items="${menus}">
-        <div class="col">
+        <div class="col" onclick="location.href = 'detail.go?m_num=${m.m_num}&name=${param.name}'">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="50%" height="100px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>${m.m_name}</title><img src = "${m.m_picture}"><rect width="50%" height="100px"/></svg>
 
-            <div class="card-body" onclick="location.href = 'detail.go?m_num=${m.m_num}&name=${param.name}'">
+            <div class="card-body">
               <p class="card-text">${m.m_name}</p>
               <p class="card-text"> <fmt:formatNumber value="${m.m_price}" type="currency" /></p>
               <div class="d-flex justify-content-between align-items-center">
               
-<%--                 <c:if test=""> --%>
+                <c:if test="${sessionScope.Naver_id == 3162561}">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick = "updatemenu.go?m_num=${m.m_num}">메뉴수정</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick= "deletemenu.go?m_num=${m.m_num}">메뉴삭제</button>
                 </div>
                 <small class="text-muted">${m.m_num}</small>
+                </c:if>
+<%--                 <c:if test="${sessionScope.id != 3162561}"> --%>
+<!--                 <div class="btn-group"> -->
+<%--                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick = "updatemenu.go?m_num=${m.m_num}">메뉴수정</button> --%>
+<%--                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick= "deletemenu.go?m_num=${m.m_num}">메뉴삭제</button> --%>
+<!--                 </div> -->
 <%--                 </c:if> --%>
               </div>
             </div>
@@ -148,12 +160,11 @@ function godetail () {
     </div>
   </div>
 </main>
-
-<!-- session 처리 예정 -->
+<c:if test="${sessionScope.Naver_id == 3162561}">
 	<form action="regMenu.go">
 	<button>메뉴등록</button>
 	</form>
-<!--  -->
+</c:if>
 <hr>
 
 <footer class="text-muted py-5">

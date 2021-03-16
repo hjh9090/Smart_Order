@@ -23,7 +23,14 @@
       }
 </style>
 <meta charset="UTF-8">
-<title>${sessionScope.name}의 장바구니</title>
+
+<c:if test="${sessionScope.Naver_name != null}">
+<title>${sessionScope.Naver_name}의 장바구니</title>
+</c:if>
+
+<c:if test="${sessionScope.Google.name != null}">
+<title>${sessionScope.Google_name}의 장바구니</title>
+</c:if>
 <!-- BootStrap -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,6 +65,14 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ef243eba4a37959f8d19524f4e2209e9&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="resources/view.css">
+<script type="text/javascript">
+$(function () {
+	
+});
+
+
+
+</script>
 </head>
 <body>
 <header>
@@ -73,12 +88,13 @@
           <ul class="list-unstyled">
             <li><a href="map.go" class="text-white">주문하러 가기</a></li>
             <li><a href="review" class="text-white">리뷰 게시판</a></li>
-            <c:if test="${sessionScope.id == null}">
+            <c:if test="${sessionScope.Naver_id == null}">
             <li><a href="login" class="text-white">로그인</a></li>
             </c:if>
-            <c:if test="${sessionScope.id != null}">
+            <c:if test="${sessionScope.Naver_id != null}">
             <li><a href="logout" class="text-white">로그아웃</a></li>
             </c:if>
+            <li><a href="faq" class="text-white">자주묻는질문</a></li>
           </ul>
         </div>
       </div>
@@ -98,22 +114,30 @@
   </div>
 </header>
 	 <div align="center">
-	 <form action="gopay" method = "POST">
+	 <form action="cartpay" method = "POST">
+	 <c:set var = "total_price" value = "0"/>
+	 <c:set var = "total_quan" value = "0"/>
 <c:forEach var = "cart" items = "${shopping}">
-	
+	<c:set var = "total_price" value="${total_price + cart.s_price}"/>
+	<c:set var = "total_quan" value="${total_quan + cart.s_quan}"/>
 	<table border="1">
 		<tr>
 			<td><img src = "${cart.s_picture}" width = "40%" height = "100px"></td>
-			<td> 메뉴 이름 : ${cart.s_name} / </td>
-			<td> 가격 : ${cart.s_price} / </td>
-			<td> 수량 : ${cart.s_quan} / </td>
-			<td> / <button id = "delete">메뉴 삭제</button></td>
+			<td style="font-family: 'BMJUA';"> 메뉴 이름 : ${cart.s_name} / </td>
+			<td style="font-family: 'BMJUA';"> 가격 : ${cart.s_price} / </td>
+			<td style="font-family: 'BMJUA';"> 수량 : ${cart.s_quan} / </td>
+			<td style="font-family: 'BMJUA';"> / <button type = "button" onclick="delcart?s_num=${cart.s_num}">메뉴 삭제</button></td>
 		</tr>
 	</table>
 		<input type = "hidden" value = "${cart.s_num}" id = "num">
+<%-- 		<input type = "hidden" value = "${total_price}" id= "price"> --%>
+<%-- 		<input type = "hidden" value = "${total_quan}" id= "quan"> --%>
+		<input type = "hidden" value = "${cart.s_name}">
 </c:forEach>
+		<input type = "hidden" value = "${total_price}" name= "price">
+		<input type = "hidden" value = "${total_quan}" name= "quan">
+		<button style="font-family: 'BMJUA';">주문하기</button>
 	</form>
-		<button>주문하기</button>
 	 </div>
 	 
 <hr>
