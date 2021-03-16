@@ -1,27 +1,40 @@
-//package com.soldesk.order.faq;
-//
-//public class FAQDAO {
-//
-//import java.util.List;
-//
-//import javax.annotation.Resource;
-//
-//import org.apache.ibatis.session.SqlSession;
-//import org.springframework.stereotype.Repository;
-//
-//import com.spring.board.dto.BoardDto;
-//import com.spring.board.form.BoardForm;
-//
-//@Repository
-//public class FAQDao {
-//
-//	@Resource(name = "sqlSession")
-//	private SqlSession sqlSession;
-//
-//	private static final String NAMESPACE = "com.spring.board.boardMapper";
-//
-//	public List<FAQVo> getBoardList(FAQForm boardForm) throws Exception {
-//
-//		return sqlSession.selectList(NAMESPACE + ".getBoardList");
-//	}
-//}}
+package com.soldesk.order.faq;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class FAQDAO {
+
+	@Autowired SqlSession sqlsession;
+	
+	
+	public void insertFaq (HttpServletRequest request, FAQVo vo) {
+		
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		
+		vo.setFaq_f(title);
+		vo.setFaq_q(content);
+		
+		if(sqlsession.getMapper(FAQMapper.class).insertFaq(vo) == 1) {
+			System.out.println("성공");
+			request.setAttribute("r", "등록완료");
+		}
+			
+		
+	}// end insert
+	
+	public void getAllList (HttpServletRequest request, FAQVo vo) {
+		
+		request.setAttribute("list", sqlsession.getMapper(FAQMapper.class).getAllList(vo));
+		
+	}
+	
+	
+}

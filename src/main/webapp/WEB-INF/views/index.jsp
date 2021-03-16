@@ -98,12 +98,13 @@ function categoryChange(e) {
           <ul class="list-unstyled">
             <li><a href="map.go" class="text-white">주문하러 가기</a></li>
             <li><a href="review" class="text-white">리뷰 게시판</a></li>
-            <c:if test="${sessionScope.id == null}">
+            <c:if test="${sessionScope.Naver_id == null}">
             <li><a href="login" class="text-white">로그인</a></li>
             </c:if>
-            <c:if test="${sessionScope.id != null}">
+            <c:if test="${sessionScope.Naver_id != null}">
             <li><a href="logout" class="text-white">로그아웃</a></li>
             </c:if>
+            <li><a href="faq" class="text-white">자주묻는질문</a></li>
           </ul>
         </div>
       </div>
