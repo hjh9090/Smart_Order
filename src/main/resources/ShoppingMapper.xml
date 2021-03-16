@@ -14,4 +14,9 @@ select * from shopping order by s_num DESC
 delete from shopping where s_num = #{s_num}
 </delete>
 
+<delete id="allDel">
+	truncate table shopping
+
+</delete>
+
 </mapper>

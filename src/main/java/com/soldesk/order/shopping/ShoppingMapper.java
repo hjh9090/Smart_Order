@@ -11,5 +11,6 @@ public interface ShoppingMapper {
 	
 	public int deleteMenu (ShoppingVo vo);
 	
+	public int allDel (ShoppingVo vo);
 
 }

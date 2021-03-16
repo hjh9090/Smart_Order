@@ -7,7 +7,7 @@ s_quan varchar2(50 char) not null
 );
 insert into shopping values (#{s_num}, #{s_picture}, #{s_name}, #{s_price}, #{quan})
 
-delete from shopping where s_num = 7;
+delete from shopping where s_num = 2;
 
 select * from shopping order by s_num DESC;
 
