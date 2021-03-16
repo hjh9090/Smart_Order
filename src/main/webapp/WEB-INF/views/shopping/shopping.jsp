@@ -97,6 +97,9 @@
     </div>
   </div>
 </header>
+<br>
+<br>
+<br>
 	 <div align="center">
 	 <form action="gopay" method = "POST">
 <c:forEach var = "cart" items = "${shopping}">
@@ -107,16 +110,19 @@
 			<td> 메뉴 이름 : ${cart.s_name} / </td>
 			<td> 가격 : ${cart.s_price} / </td>
 			<td> 수량 : ${cart.s_quan} / </td>
-			<td> / <button id = "delete">메뉴 삭제</button></td>
+			<td><button id = "delete">메뉴 삭제</button></td>
 		</tr>
 	</table>
 		<input type = "hidden" value = "${cart.s_num}" id = "num">
 </c:forEach>
+<br>
 	</form>
 		<button>주문하기</button>
 	 </div>
 	 
 <hr>
+<br>
+<br>
 <footer class="text-muted py-5">
   <div class="container">
     <p class="float-end mb-1">
