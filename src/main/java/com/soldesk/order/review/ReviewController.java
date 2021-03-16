@@ -29,6 +29,26 @@ public class ReviewController {
 		return "review/review";
 	}
 	
+	@RequestMapping(value = "del.review", method = RequestMethod.GET)
+	public String delreview(Review rv, HttpServletRequest request, HttpSession session) {
+		d.delReview(rv,request,session);
+		d.getallreviews(rv, request);
+		return "review/review";
+	}
+
+	@RequestMapping(value = "search.review", method = RequestMethod.GET)
+	public String searchreview(Review rv, HttpServletRequest request, HttpSession session) {
+		d.searchReview(rv,request,session);
+		return "review/review";
+	}
+
+	@RequestMapping(value = "update.review", method = RequestMethod.GET)
+	public String updatereview(UpdateReview ur,Review rv, HttpServletRequest request, HttpSession session) {
+		d.updateReview(ur,rv, request,session);
+		d.getallreviews(rv, request);
+		return "review/review";
+	}
+	
 	
 
 	

@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="resources/review.js"></script>
 <style type="text/css">
 #rreg {
 	position: fixed;
@@ -19,21 +20,40 @@
 	left: 420px;
 	top: 200px;
 }
+
+td{
+padding: 15px;
+}
+
+.tdnum{
+width: 45px;
+}
+
+
+.tdid{
+width:100px; 
+}
+
+.tdwrite{
+width: 400px;
+}
+
+
+
 </style>
 </head>
 <body>
 
-${r}
+
 
 	<table>
 		<tr>
 	
 			<td>
-				<h3>${r}</h3>
 				<div id="rreg">
-				<form action="ReviewSearchController">
+				<form action="search.review">
 					<div>
-						<input name="rsc">
+						리뷰내용 <input name="r_content">
 						<button>검색</button>
 					</div>
 				</form><p>
@@ -43,14 +63,15 @@ ${r}
 						<table border="1">
 							<tr>
 								<td>리뷰내용</td>
-								<td><input type="text" name="r_content"></td>
+								<td><textarea placeholder="리뷰 내용을 적어주세요!" name="r_content" cols="30" rows="2"></textarea>
+								<!--  <input type="text" name="r_content"></td>-->
 							</tr>
 							<tr>
 								<td>리뷰사진</td>
 								<td><input type="file" name="r_picture"></td>
 							</tr>
 							<tr>
-								<td colspan="2"><button>등록</button></td>
+								<td colspan="2"><button>등록</button><h3>${r}</h3></td>
 							</tr>
 						</table>
 						
@@ -60,22 +81,19 @@ ${r}
 
 				
 
-				<div id="content">
+				<div id="content" align="center">
 				
 					<c:forEach var="r" items="${reviews}">
-						<table border="1" width="400px" height="150px">
+						
+						<table border="1"">
+						
 							<tr>
-								<td>${r.r_num}&nbsp;</td>
-								<td><fmt:formatDate value="${r.r_date}" dateStyle="short" /></td>
-								<td>${r.r_id}&nbsp;</td>
-								<td>${r.r_content}&nbsp;</td>
-								<td><img src="resources/reviewimg/${r.r_picture}">&nbsp;</td>
-
-								<%-- 
-				<td><button onclick="location.href='MovieUpdateController?no=${m.m_no}'">수정</button></td><hr>
-				<td><button onclick="updateMovie('${m.m_title}','${m.m_actor}','${m.m_story}','${m.m_no}');">수정2(js)</button></td><hr>
-				<td><button onclick="location.href='MovieDeleteController?no=${m.m_no}'">삭제</button></td>
-				<td><button onclick="deleteMovie('${m.m_no}')">삭제2(js)</button></td> --%>
+								<td class="tdnum" align="center">No.${r.r_num}</td>
+								<td class="tddate" align="center"><fmt:formatDate value="${r.r_date}" dateStyle="long"/></td>
+								<td class="tdid" align="center">${r.r_id}</td>
+								<td class="tdimg"><img src="resources/reviewimg/${r.r_picture}" width="120px" height="120px"></td>
+								<td class="tdwrite">${r.r_content}</td>
+								<td class="tddel"><button onclick="deleteReview('${r.r_num}')">삭제</button><button onclick="updateReview('${r.r_content}','${r.r_num}')">수정</button></td>
 							</tr>
 						</table>
 					</c:forEach>
