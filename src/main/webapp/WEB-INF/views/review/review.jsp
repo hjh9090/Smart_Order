@@ -14,6 +14,10 @@
 width: 50px;
 }
 
+td{
+
+ font-family: 'BMJUA';
+}
 
 .tdid{
 width:100px; 
@@ -51,7 +55,7 @@ width: 400px;
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
- 
+
     <!-- Bootstrap core CSS -->
 <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
@@ -132,6 +136,10 @@ width: 400px;
 
 						<input name="rsc">
 						<button style="font-family: 'BMJUA';">검색</button>
+
+					<hr><input name="r_content">
+						<button style="font-family: 'BMJUA';">리뷰내용 검색</button>
+
 					</div>
 				</form><p>
 				<c:if test="${sessionScope.Naver_id != null || sessionScope.Google_id != null}">
@@ -140,19 +148,19 @@ width: 400px;
 						<table border="1">
 							<tr>
 
-								<td>리뷰내용</td>
-								<td><textarea placeholder="리뷰 내용을 적어주세요!" name="r_content" cols="30" rows="2"></textarea>
-								<!--  <input type="text" name="r_content"></td>-->
-
 								<td style="font-family: 'BMJUA';">리뷰내용</td>
-								<td><input type="text" name="r_content"></td>
+								<td style="font-family: 'BMJUA';"><textarea placeholder="리뷰 내용을 적어주세요!" name="r_content" cols="30" rows="2"></textarea>
 							</tr>
 							<tr>
 								<td style="font-family: 'BMJUA';">리뷰사진</td>
 								<td><input type="file" name="r_picture"></td>
 							</tr>
 							<tr>
+
 								<td colspan="2" align="center"><button>등록</button></td>
+
+
+								<td colspan="2" align="center" style="font-family: 'BMJUA';"><button>등록</button></td>
 
 							</tr>
 						</table>
