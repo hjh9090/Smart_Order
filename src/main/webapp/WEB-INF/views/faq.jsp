@@ -131,18 +131,17 @@
 			</section>
 		</c:if>
 		<c:forEach var="list" items="${list}">
-			<table border="1">
-				<tr>
+			<table align="center" border="1" style="font-family: sans-serif;">
+				<tr align="center">
 					<td>${list.faq_f}</td>
 				</tr>
 				<tr>
 					<td>${list.faq_q}</td>
 				</tr>
-
 			</table>
+			<br>
 		</c:forEach>
 	</div>
-	
 	
 	<br>
 <br>

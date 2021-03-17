@@ -1,7 +1,5 @@
 package com.soldesk.order.faq;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
