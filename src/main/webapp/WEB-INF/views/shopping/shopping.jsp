@@ -110,6 +110,9 @@ $(function () {
             <c:if test="${sessionScope.Naver_id != null}">
             <li><a href="logout" class="text-white">로그아웃</a></li>
             </c:if>
+            <c:if test="${sessionScope.Google_id != null}">
+            <li><a href="logout" class="text-white">로그아웃</a></li>
+            </c:if>
             <li><a href="faq" class="text-white">자주묻는질문</a></li>
           </ul>
         </div>
@@ -143,6 +146,7 @@ $(function () {
       <tr>
          <td><img src = "${cart.s_picture}" width = "40%" height = "100px"></td>
 
+
          <td style="font-family: 'BMJUA';"> 메뉴 이름 : ${cart.s_name} / </td>
          <td style="font-family: 'BMJUA';"> 가격 : ${cart.s_price} / </td>
          <td style="font-family: 'BMJUA';"> 수량 : ${cart.s_quan}</td>
@@ -156,6 +160,7 @@ $(function () {
    <br>
       <input type = "hidden" value = "${cart.s_num}" id = "num">
       <input type = "hidden" value = "${cart.s_name}">
+
 </c:forEach>
 
       <input type = "hidden" value = "${total_price}" name= "price">

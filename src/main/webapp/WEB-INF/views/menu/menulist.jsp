@@ -98,7 +98,13 @@ function goLogin () {
             <c:if test="${sessionScope.Naver_id == null}">
             <li><a href="login" class="text-white">로그인</a></li>
             </c:if>
+            <c:if test="${sessionScope.Google_id == null}">
+            <li><a href="login" class="text-white">로그인</a></li>
+            </c:if>
             <c:if test="${sessionScope.Naver_id != null}">
+            <li><a href="logout" class="text-white">로그아웃</a></li>
+            </c:if>
+            <c:if test="${sessionScope.Google_id != null}">
             <li><a href="logout" class="text-white">로그아웃</a></li>
             </c:if>
             <li><a href="faq" class="text-white">자주묻는질문</a></li>
@@ -169,14 +175,6 @@ function goLogin () {
               <p class="card-text">${m.m_name}</p>
               <p class="card-text"> <fmt:formatNumber value="${m.m_price}" type="currency" /></p>
               <div class="d-flex justify-content-between align-items-center">
-              
-                <c:if test="${sessionScope.Naver_id == 3162561}">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick = "updatemenu.go?m_num=${m.m_num}">메뉴수정</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick= "deletemenu.go?m_num=${m.m_num}">메뉴삭제</button>
-                </div>
-                <small class="text-muted">${m.m_num}</small>
-                </c:if>
               </div>
             </div>
           </div>
