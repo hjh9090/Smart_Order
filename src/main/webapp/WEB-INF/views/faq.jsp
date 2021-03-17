@@ -111,8 +111,8 @@
 				<form method="post" action="regfaq">
 					<table>
 							<tr>
-								<td><label for="title">제목</label><input type="text"
-									id="title" name="title" /></td>
+								<td><label for="title">제목</label>
+								<input type="text" id="title" name="title" /></td>
 							</tr>
 							<tr>
 								<td><label for="content">내용</label>
@@ -128,17 +128,20 @@
 				</form>
 			</section>
 		</c:if>
-		<c:forEach var="list" items="${list}">
-			<table align="center" border="1" style="font-family: sans-serif;">
-				<tr align="center">
-					<td>${list.faq_f}</td>
+
+	 <c:forEach var="list" items="${list}">
+			<table align="center" border="1" style="font-family: 'BMJUA';">
+				<tr>
+
+					<td align="center">${list.faq_f}</td>
 				</tr>
 				<tr>
 					<td>${list.faq_q}</td>
 				</tr>
 			</table>
 			<br>
-		</c:forEach>
+		</c:forEach> 
+
 	</div>
 	
 	<br>

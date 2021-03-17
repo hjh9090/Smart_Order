@@ -146,8 +146,18 @@ $(function () {
 			<td style="font-family: 'BMJUA';"> 메뉴 이름 : ${cart.s_name} / </td>
 			<td style="font-family: 'BMJUA';"> 가격 : ${cart.s_price} / </td>
 			<td style="font-family: 'BMJUA';"> 수량 : ${cart.s_quan} / </td>
+
       <td style="font-family: 'BMJUA';"> / <button type = "button" id = "delcart">메뉴 삭제</button></td>
-			<td>${cart.s_num}</td>
+
+
+<!--  
+			<td> 메뉴 이름 : ${cart.s_name} / </td>
+			<td> 가격 : ${cart.s_price} / </td>
+			<td> 수량 : ${cart.s_quan} / </td>
+			<td><button id = "delete">메뉴 삭제</button></td>
+-->			
+
+
 		</tr>
 	</table>
 		<input type = "hidden" value = "${cart.s_num}" id = "num">
