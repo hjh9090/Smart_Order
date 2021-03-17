@@ -129,16 +129,9 @@ width: 400px;
 				<div id="rreg" align="center">
 				<form action="search.review">
 					<div>
+					<hr>
 						리뷰 내용으로 찾기 <input name="r_content">
-
-						리뷰내용 <input name="r_content">
-						<button>검색</button>
-
-						<input name="rsc">
 						<button style="font-family: 'BMJUA';">검색</button>
-
-					<hr><input name="r_content">
-						<button style="font-family: 'BMJUA';">리뷰내용 검색</button>
 
 					</div>
 				</form><p>
@@ -156,10 +149,6 @@ width: 400px;
 								<td><input type="file" name="r_picture"></td>
 							</tr>
 							<tr>
-
-								<td colspan="2" align="center"><button>등록</button></td>
-
-
 								<td colspan="2" align="center" style="font-family: 'BMJUA';"><button>등록</button></td>
 
 							</tr>
@@ -169,11 +158,12 @@ width: 400px;
 					</c:if>
 				</div>
 
+
 				<div id="content" align="center">
 				
 					<c:forEach var="r" items="${reviews}">
 						
-						<table border="1"">
+						<table border="1">
 						
 							<tr>
 								<td class="tdnum" align="center">No.${r.r_num}</td>

@@ -130,7 +130,10 @@
 		</c:if>
 
 	 <c:forEach var="list" items="${list}">
-			<table align="center" border="1" style="font-family: sans-serif;">
+
+
+			<table align="center" border="1" style="font-family: 'BMJUA';">
+
 				<tr>
 
 					<td align="center">${list.faq_f}</td>
@@ -139,8 +142,11 @@
 					<td>${list.faq_q}</td>
 				</tr>
 			</table>
-	<br>
+
+			<br>
 		</c:forEach> 
+
+
 	</div>
 	
 	<br>

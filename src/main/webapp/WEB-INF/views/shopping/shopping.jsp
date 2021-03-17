@@ -117,6 +117,7 @@
 </script>
 </head>
 <body>
+
 	<header>
 		<div class="collapse bg-dark" id="navbarHeader">
 			<div class="container">
@@ -186,14 +187,64 @@
 
 						<!-- 
  			<td style="font-family: 'BMJUA';"><button type = "button" onclick="delcart?s_num=${cart.s_num}">메뉴 삭제</button></td>
- -->
 
-						<!--  
-			<td> 메뉴 이름 : ${cart.s_name} / </td>
-			<td> 가격 : ${cart.s_price} / </td>
-			<td> 수량 : ${cart.s_quan} / </td>
-			<td><button id = "delete">메뉴 삭제</button></td>
--->
+<header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">Notice!</h4>
+          <p class="text-muted">밥 먹으러 GO!가 베타서비스를 시작 하였습니다!</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">메뉴</h4>
+          <ul class="list-unstyled">
+            <li><a href="map.go" class="text-white">주문하러 가기</a></li>
+            <li><a href="review" class="text-white">리뷰 게시판</a></li>
+            <c:if test="${sessionScope.Naver_id == null}">
+            <li><a href="login" class="text-white">로그인</a></li>
+            </c:if>
+            <c:if test="${sessionScope.Naver_id != null}">
+            <li><a href="logout" class="text-white">로그아웃</a></li>
+            </c:if>
+            <li><a href="faq" class="text-white">자주묻는질문</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a href="map.go" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24">
+        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>밥 먹으러 GO!</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<br>
+<br>
+<br>
+	 <div align="center">
+	 <form action="cartpay" method = "POST">
+	 <c:set var = "total_price" value = "0"/>
+	 <c:set var = "total_quan" value = "0"/>
+<c:forEach var = "cart" items = "${shopping}">
+	<c:set var = "total_price" value="${total_price + cart.s_price}"/>
+	<c:set var = "total_quan" value="${total_quan + cart.s_quan}"/>
+	<table border="1">
+		<tr>
+			<td><img src = "${cart.s_picture}" width = "40%" height = "100px"></td>
+
+			<td style="font-family: 'BMJUA';"> 메뉴 이름 : ${cart.s_name} / </td>
+			<td style="font-family: 'BMJUA';"> 가격 : ${cart.s_price} / </td>
+			<td style="font-family: 'BMJUA';"> 수량 : ${cart.s_quan} / </td>
+
+      <td style="font-family: 'BMJUA';"> / <button type = "button" id = "delcart">메뉴 삭제</button></td>
 
 
 					</tr>
