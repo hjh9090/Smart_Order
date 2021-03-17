@@ -24,7 +24,11 @@ width:100px;
 }
 
 .tdwrite{
-width: 400px;
+width: 250px;
+}
+
+.tdwrite{
+padding-left: 50px; 
 }
 
 
@@ -158,12 +162,11 @@ width: 400px;
 					</c:if>
 				</div>
 
-
 				<div id="content" align="center">
 				
 					<c:forEach var="r" items="${reviews}">
 						
-						<table border="1">
+						<table  border="1" style="font-family: 'BMJUA'; background-color: #f4dfd6;" width="750" height="200">
 						
 							<tr>
 								<td class="tdnum" align="center">No.${r.r_num}</td>
@@ -171,10 +174,13 @@ width: 400px;
 								<td class="tdid" align="center">${r.r_id}</td>
 								<td class="tdimg"><img src="resources/reviewimg/${r.r_picture}" width="120px" height="120px"></td>
 								<td class="tdwrite">${r.r_content}</td>
-								<td class="tddel"><button onclick="deleteReview('${r.r_num}')">삭제</button><button onclick="updateReview('${r.r_content}','${r.r_num}')">수정</button></td>
+								<td class="tddel"><button onclick="deleteReview('${r.r_num}')">삭제</button></td>
+								<td class="tdup"><button onclick="updateReview('${r.r_content}','${r.r_num}')">수정</button></td>
 
 							</tr>
 						</table>
+						<br>
+						<br>
 					</c:forEach>
 				</div>
 	</table>
