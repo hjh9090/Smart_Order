@@ -124,39 +124,40 @@ width: 400px;
 
 
 	<table style="margin-left: auto; margin-right: auto;">
-      <tr>
-         <td>
-            <div id="rreg" align="center">
-            <form action="search.review">
-               <div>
-               <hr>
-                  리뷰 내용으로 찾기 <input name="r_content">
-                  <button style="font-family: 'BMJUA';">검색</button>
+		<tr>
+			<td>
+				<div id="rreg" align="center">
+				<form action="search.review">
+					<div>
+					<hr>
+						리뷰 내용으로 찾기 <input name="r_content">
+						<button style="font-family: 'BMJUA';">검색</button>
 
-               </div>
-            </form><p>
-            <c:if test="${sessionScope.Naver_id != null || sessionScope.Google_id != null}">
-               <form action="reg.review" method="post"
-                  enctype="multipart/form-data">
-                  <table border="1">
-                     <tr>
+					</div>
+				</form><p>
+				<c:if test="${sessionScope.Naver_id != null || sessionScope.Google_id != null}">
+					<form action="reg.review" method="post"
+						enctype="multipart/form-data">
+						<table border="1">
+							<tr>
 
-                        <td style="font-family: 'BMJUA';">리뷰내용</td>
-                        <td style="font-family: 'BMJUA';"><textarea placeholder="리뷰 내용을 적어주세요!" name="r_content" cols="30" rows="2"></textarea>
-                     </tr>
-                     <tr>
-                        <td style="font-family: 'BMJUA';">리뷰사진</td>
-                        <td><input type="file" name="r_picture"></td>
-                     </tr>
-                     <tr>
-                        <td colspan="2" align="center" style="font-family: 'BMJUA';"><button>등록</button></td>
+								<td style="font-family: 'BMJUA';">리뷰내용</td>
+								<td style="font-family: 'BMJUA';"><textarea placeholder="리뷰 내용을 적어주세요!" name="r_content" cols="30" rows="2"></textarea>
+							</tr>
+							<tr>
+								<td style="font-family: 'BMJUA';">리뷰사진</td>
+								<td><input type="file" name="r_picture"></td>
+							</tr>
+							<tr>
+								<td colspan="2" align="center" style="font-family: 'BMJUA';"><button>등록</button></td>
 
-                     </tr>
-                  </table>
-                  <p>
-               </form>
-               </c:if>
-            </div>
+							</tr>
+						</table>
+						<p>
+					</form>
+					</c:if>
+				</div>
+
 
 				<div id="content" align="center">
 				
