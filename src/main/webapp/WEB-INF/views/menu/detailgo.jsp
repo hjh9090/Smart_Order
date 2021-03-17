@@ -65,6 +65,7 @@ $(function () {
 		var s_price = $('#price').val();
 		var s_quan = $('#quan').val();
 		var s_picture = $('#picture').val();
+		var res_name = $('res_name').val();
 		if(s_quan == '수량을 선택하세요'){
 			alert('수량을 선택해 주세요');
 		} else {
