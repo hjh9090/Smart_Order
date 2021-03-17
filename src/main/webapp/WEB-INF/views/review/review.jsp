@@ -158,11 +158,12 @@ width: 400px;
 					</c:if>
 				</div>
 
+
 				<div id="content" align="center">
 				
 					<c:forEach var="r" items="${reviews}">
 						
-						<table border="1"">
+						<table border="1">
 						
 							<tr>
 								<td class="tdnum" align="center">No.${r.r_num}</td>

@@ -130,16 +130,20 @@
 		</c:if>
 
 	 <c:forEach var="list" items="${list}">
-			<table border="1">
+
+			<table align="center" border="1" style="font-family: 'BMJUA';">
 				<tr>
 
-					<td>${list.faq_f}</td>
+					<td align="center">${list.faq_f}</td>
 				</tr>
 				<tr>
 					<td>${list.faq_q}</td>
 				</tr>
 			</table>
+
+			<br>
 		</c:forEach> 
+
 	</div>
 	
 	<br>
