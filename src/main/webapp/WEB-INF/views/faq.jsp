@@ -110,7 +110,6 @@
 			<section id="container">
 				<form method="post" action="regfaq">
 					<table>
-						<tbody>
 							<tr>
 								<td><label for="title">제목</label><input type="text"
 									id="title" name="title" /></td>
@@ -125,7 +124,6 @@
 									<button type="submit">작성</button>
 								</td>
 							</tr>
-						</tbody>
 					</table>
 				</form>
 			</section>

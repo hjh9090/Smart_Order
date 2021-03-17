@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <script type="text/javascript" src="resources/review.js"></script>
 <title>리뷰게시판</title>
 <style type="text/css">
@@ -130,6 +129,7 @@ width: 400px;
 
 						리뷰내용 <input name="r_content">
 						<button>검색</button>
+
 						<input name="rsc">
 						<button style="font-family: 'BMJUA';">검색</button>
 					</div>
@@ -153,14 +153,13 @@ width: 400px;
 							</tr>
 							<tr>
 								<td colspan="2" align="center"><button>등록</button></td>
+
 							</tr>
 						</table>
 						<p>
 					</form>
 					</c:if>
 				</div>
-
-				
 
 				<div id="content" align="center">
 				

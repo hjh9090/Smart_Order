@@ -20,6 +20,6 @@ values ( '5. 사이트 이용 방법에 대해 알려주세요. ', '구글 혹�
 
 select * from faq;
 
-delete from faq;
+delete from faq where faq_f = '테스트';
 
 drop table faq;

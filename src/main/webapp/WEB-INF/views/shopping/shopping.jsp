@@ -67,7 +67,23 @@
 <link rel="stylesheet" href="resources/view.css">
 <script type="text/javascript">
 $(function () {
-	
+	var num = $('#num').val();
+	$('#delcart').on('click', function () {
+		$.ajax({
+			url : "delcart",
+			type : "GET",
+			data : {num : num},
+			success : function (s) {
+				alert('삭제성공');
+				location.href = "cart.go";
+			},
+			error : function (e) {
+				alert('오류가 발생하였습니다.');
+				alert(JSON.stringify(e));
+				console.log(JSON.stringify(e));
+			}
+		});
+	});
 });
 
 
@@ -130,18 +146,11 @@ $(function () {
 			<td style="font-family: 'BMJUA';"> 메뉴 이름 : ${cart.s_name} / </td>
 			<td style="font-family: 'BMJUA';"> 가격 : ${cart.s_price} / </td>
 			<td style="font-family: 'BMJUA';"> 수량 : ${cart.s_quan} / </td>
-			<td style="font-family: 'BMJUA';"> / <button type = "button" onclick="delcart?s_num=${cart.s_num}">메뉴 삭제</button></td>
-
-			<td> 메뉴 이름 : ${cart.s_name} / </td>
-			<td> 가격 : ${cart.s_price} / </td>
-			<td> 수량 : ${cart.s_quan} / </td>
-			<td><button id = "delete">메뉴 삭제</button></td>
-
+      <td style="font-family: 'BMJUA';"> / <button type = "button" id = "delcart">메뉴 삭제</button></td>
+			<td>${cart.s_num}</td>
 		</tr>
 	</table>
 		<input type = "hidden" value = "${cart.s_num}" id = "num">
-<%-- 		<input type = "hidden" value = "${total_price}" id= "price"> --%>
-<%-- 		<input type = "hidden" value = "${total_quan}" id= "quan"> --%>
 		<input type = "hidden" value = "${cart.s_name}">
 </c:forEach>
 
@@ -152,6 +161,7 @@ $(function () {
 <br>
 
 	</form>
+<!-- 		<button style="font-family: 'BMJUA';">계속 쇼핑하기</button> -->
 	 </div>
 	 
 <hr>
@@ -166,11 +176,6 @@ $(function () {
     <p class="mb-0">솔데스크 홈페이지 : <a href="https://soldesk.com/index.asp">link of Soldesk</a> SoftBankTechnology : <a href="https://www.softbanktech.co.jp/">link of SBT</a></p>
   </div>
 </footer>
-
-
-<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-
-
 
 </body>
 </html>

@@ -25,6 +25,12 @@ public class ShoppingController {
 		System.out.println("삭제 들어옴");
 		d.deleteMenu(req, sv);
 		d.getlist(req, sv);
-		return "redirect:shopping/shopping";
+		return "shopping/shopping";
+	}
+	
+	@RequestMapping(value = "cart.go", method = RequestMethod.GET)
+	public String goCart (HttpServletRequest req, ShoppingVo sv) {
+		d.getlist(req, sv);
+		return "shopping/shopping";
 	}
 }

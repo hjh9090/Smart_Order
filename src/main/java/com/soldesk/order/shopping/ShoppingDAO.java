@@ -51,7 +51,7 @@ public class ShoppingDAO {
 	
 	public void deleteMenu (HttpServletRequest req, ShoppingVo vo) {
 		
-		String s_num = req.getParameter("s_num");
+		String s_num = req.getParameter("num");
 		try {
 			vo.setS_num(new BigDecimal(s_num));
 			
