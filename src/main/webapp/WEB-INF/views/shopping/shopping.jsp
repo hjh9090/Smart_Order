@@ -147,8 +147,8 @@ $(function () {
          <td><img src = "${cart.s_picture}" width = "40%" height = "100px"></td>
 
 
-         <td style="font-family: 'BMJUA';"> 메뉴 이름 : ${cart.s_name} / </td>
-         <td style="font-family: 'BMJUA';"> 가격 : ${cart.s_price} / </td>
+         <td style="font-family: 'BMJUA';"> 메뉴 이름 : ${cart.s_name}</td>
+         <td style="font-family: 'BMJUA';"> 가격 : ${cart.s_price} </td>
          <td style="font-family: 'BMJUA';"> 수량 : ${cart.s_quan}</td>
 
       <td style="font-family: 'BMJUA';"> <button type = "button" id = "delcart">메뉴 삭제</button></td>
