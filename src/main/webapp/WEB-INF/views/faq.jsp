@@ -80,6 +80,9 @@
             <c:if test="${sessionScope.Naver_id != null}">
             <li><a href="logout" class="text-white">로그아웃</a></li>
             </c:if>
+            <c:if test="${sessionScope.Google_id != null}">
+            <li><a href="logout" class="text-white">로그아웃</a></li>
+            </c:if>
             <li><a href="faq" class="text-white">자주묻는질문</a></li>
           </ul>
         </div>
@@ -132,7 +135,6 @@
 	 <c:forEach var="list" items="${list}">
 			<table align="center" border="1" style="font-family: 'BMJUA';">
 				<tr>
-
 					<td align="center">${list.faq_f}</td>
 				</tr>
 				<tr>

@@ -3,7 +3,7 @@
 <mapper namespace="com.soldesk.order.review.ReviewMapper">
 
 <select id="getAllReviews" resultType="com.soldesk.order.review.Review">
-select * from Review
+select * from Review order by r_num DESC
 </select>
 
 <insert id="regReview" parameterType="com.soldesk.order.review.Review" >
@@ -15,7 +15,7 @@ delete from review where r_num = #{r_num}
 </delete>
 
 <select id="searchReviewByName" parameterType="com.soldesk.order.review.Review" resultType="com.soldesk.order.review.Review">
-select * from review where r_content like '%'||#{r_content}||'%'  
+select * from review where r_content like '%'||#{r_content}||'%'
 </select>
 
 <update id="updateReview" parameterType="com.soldesk.order.review.UpdateReview">

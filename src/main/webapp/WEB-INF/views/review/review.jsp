@@ -171,14 +171,14 @@ width: 400px;
 								<td class="tdid" align="center">${r.r_id}</td>
 								<td class="tdimg"><img src="resources/reviewimg/${r.r_picture}" width="120px" height="120px"></td>
 								<td class="tdwrite">${r.r_content}</td>
+								<c:if test="${sessionScope.Naver_name == r.r_id}">
 								<td class="tddel"><button onclick="deleteReview('${r.r_num}')">삭제</button><button onclick="updateReview('${r.r_content}','${r.r_num}')">수정</button></td>
-
+								</c:if>
 							</tr>
 						</table>
 					</c:forEach>
 				</div>
 	</table>
-
 
 <br>
 <br>

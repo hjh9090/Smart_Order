@@ -110,6 +110,9 @@ $(function () {
             <c:if test="${sessionScope.Naver_id != null}">
             <li><a href="logout" class="text-white">로그아웃</a></li>
             </c:if>
+            <c:if test="${sessionScope.Google_id != null}">
+            <li><a href="logout" class="text-white">로그아웃</a></li>
+            </c:if>
             <li><a href="faq" class="text-white">자주묻는질문</a></li>
           </ul>
         </div>
@@ -136,7 +139,7 @@ $(function () {
 	 <form action="cartpay" method = "POST">
 	 <c:set var = "total_price" value = "0"/>
 	 <c:set var = "total_quan" value = "0"/>
-<c:forEach var = "cart" items = "${shopping}">
+	<c:forEach var = "cart" items = "${shopping}">
 	<c:set var = "total_price" value="${total_price + cart.s_price}"/>
 	<c:set var = "total_quan" value="${total_quan + cart.s_quan}"/>
 	<table border="1">
@@ -148,14 +151,6 @@ $(function () {
 			<td style="font-family: 'BMJUA';"> 수량 : ${cart.s_quan} / </td>
 
       <td style="font-family: 'BMJUA';"> / <button type = "button" id = "delcart">메뉴 삭제</button></td>
-
-
-<!--  
-			<td> 메뉴 이름 : ${cart.s_name} / </td>
-			<td> 가격 : ${cart.s_price} / </td>
-			<td> 수량 : ${cart.s_quan} / </td>
-			<td><button id = "delete">메뉴 삭제</button></td>
--->			
 
 
 		</tr>
