@@ -174,9 +174,10 @@ padding-left: 50px;
 								<td class="tdid" align="center">${r.r_id}</td>
 								<td class="tdimg"><img src="resources/reviewimg/${r.r_picture}" width="120px" height="120px"></td>
 								<td class="tdwrite">${r.r_content}</td>
-								<td class="tddel"><button onclick="deleteReview('${r.r_num}')">삭제</button></td>
-								<td class="tdup"><button onclick="updateReview('${r.r_content}','${r.r_num}')">수정</button></td>
 
+								<c:if test="${sessionScope.Naver_name == r.r_id}">
+								<td class="tddel"><button onclick="deleteReview('${r.r_num}')">삭제</button><button onclick="updateReview('${r.r_content}','${r.r_num}')">수정</button></td>
+								</c:if>
 							</tr>
 						</table>
 						<br>
@@ -184,7 +185,6 @@ padding-left: 50px;
 					</c:forEach>
 				</div>
 	</table>
-
 
 <br>
 <br>

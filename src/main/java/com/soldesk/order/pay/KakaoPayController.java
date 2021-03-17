@@ -51,6 +51,11 @@ public class KakaoPayController {
 		String quan = request.getParameter("quan");
 		String res_name = request.getParameter("res_name");
 		
+		int change_price = Integer.parseInt(price);
+		int change_quan = Integer.parseInt(quan);
+		
+		String total_price = String.valueOf(change_price * change_quan);
+		
 		try {
 			String url = "https://kapi.kakao.com";
 			
@@ -71,7 +76,7 @@ public class KakaoPayController {
 			//수량
 			params.add("quantity", quan);
 			
-			params.add("total_amount", price);
+			params.add("total_amount", total_price);
 			
 			params.add("tax_free_amount", "3990");
 			
@@ -90,7 +95,7 @@ public class KakaoPayController {
 			System.out.println(kakaoready.getNext_redirect_pc_url().toString());
 			
 			session.setAttribute("name", name);
-			session.setAttribute("price", price);
+			session.setAttribute("price", total_price);
 			session.setAttribute("res_name", res_name);
 			
 		} catch (Exception e) {

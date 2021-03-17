@@ -38,6 +38,7 @@ public class LoginController {
 	
 	@Autowired
 	private MemberVO member;
+	private GoogleVO google;
 	
 	private static final Logger logger  = LoggerFactory.getLogger(LoginController.class);
 	
@@ -143,12 +144,13 @@ public class LoginController {
 					
 					if(result2 == 0) {
 						
-						dao.insertMember(member);
+						dao.insertGoogle(google);
 						request.getSession().setAttribute("Google_id", userId);
 						request.getSession().setAttribute("Google_name", name);
 						request.getSession().setAttribute("Google_email", email);
 						
 					} else if (result2 == 1) {
+						dao.getGoogle(userId);
 						request.getSession().setAttribute("Google_id", userId);
 						request.getSession().setAttribute("Google_name", name);
 						request.getSession().setAttribute("Google_email", email);
