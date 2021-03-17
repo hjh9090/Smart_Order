@@ -2,8 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+   pageEncoding="UTF-8"%>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,23 +67,23 @@
 <link rel="stylesheet" href="resources/view.css">
 <script type="text/javascript">
 $(function () {
-	var num = $('#num').val();
-	$('#delcart').on('click', function () {
-		$.ajax({
-			url : "delcart",
-			type : "GET",
-			data : {num : num},
-			success : function (s) {
-				alert('삭제성공');
-				location.href = "cart.go";
-			},
-			error : function (e) {
-				alert('오류가 발생하였습니다.');
-				alert(JSON.stringify(e));
-				console.log(JSON.stringify(e));
-			}
-		});
-	});
+   var num = $('#num').val();
+   $('#delcart').on('click', function () {
+      $.ajax({
+         url : "delcart",
+         type : "GET",
+         data : {num : num},
+         success : function (s) {
+            alert('삭제성공');
+            location.href = "cart.go";
+         },
+         error : function (e) {
+            alert('오류가 발생하였습니다.');
+            alert(JSON.stringify(e));
+            console.log(JSON.stringify(e));
+         }
+      });
+   });
 });
 
 
@@ -132,48 +132,42 @@ $(function () {
 <br>
 <br>
 <br>
-	 <div align="center">
-	 <form action="cartpay" method = "POST">
-	 <c:set var = "total_price" value = "0"/>
-	 <c:set var = "total_quan" value = "0"/>
+    <div align="center">
+    <form action="cartpay" method = "POST">
+    <c:set var = "total_price" value = "0"/>
+    <c:set var = "total_quan" value = "0"/>
 <c:forEach var = "cart" items = "${shopping}">
-	<c:set var = "total_price" value="${total_price + cart.s_price}"/>
-	<c:set var = "total_quan" value="${total_quan + cart.s_quan}"/>
-	<table border="1">
-		<tr>
-			<td><img src = "${cart.s_picture}" width = "40%" height = "100px"></td>
+   <c:set var = "total_price" value="${total_price + cart.s_price}"/>
+   <c:set var = "total_quan" value="${total_quan + cart.s_quan}"/>
+   <table align="center" border="1" style="font-family: 'BMJUA'; background-color: #f4dfd6;" width="750" height="200" >
+      <tr>
+         <td><img src = "${cart.s_picture}" width = "40%" height = "100px"></td>
 
-			<td style="font-family: 'BMJUA';"> 메뉴 이름 : ${cart.s_name} / </td>
-			<td style="font-family: 'BMJUA';"> 가격 : ${cart.s_price} / </td>
-			<td style="font-family: 'BMJUA';"> 수량 : ${cart.s_quan} / </td>
+         <td style="font-family: 'BMJUA';"> 메뉴 이름 : ${cart.s_name} / </td>
+         <td style="font-family: 'BMJUA';"> 가격 : ${cart.s_price} / </td>
+         <td style="font-family: 'BMJUA';"> 수량 : ${cart.s_quan}</td>
 
-      <td style="font-family: 'BMJUA';"> / <button type = "button" id = "delcart">메뉴 삭제</button></td>
-
-
-<!--  
-			<td> 메뉴 이름 : ${cart.s_name} / </td>
-			<td> 가격 : ${cart.s_price} / </td>
-			<td> 수량 : ${cart.s_quan} / </td>
-			<td><button id = "delete">메뉴 삭제</button></td>
--->			
+      <td style="font-family: 'BMJUA';"> <button type = "button" id = "delcart">메뉴 삭제</button></td>
 
 
-		</tr>
-	</table>
-		<input type = "hidden" value = "${cart.s_num}" id = "num">
-		<input type = "hidden" value = "${cart.s_name}">
+      </tr>
+   </table>
+   <br>
+   <br>
+      <input type = "hidden" value = "${cart.s_num}" id = "num">
+      <input type = "hidden" value = "${cart.s_name}">
 </c:forEach>
 
-		<input type = "hidden" value = "${total_price}" name= "price">
-		<input type = "hidden" value = "${total_quan}" name= "quan">
-		<button style="font-family: 'BMJUA';">주문하기</button>
+      <input type = "hidden" value = "${total_price}" name= "price">
+      <input type = "hidden" value = "${total_quan}" name= "quan">
+      <button style="font-family: 'BMJUA';">주문하기</button>
 
 <br>
 
-	</form>
-<!-- 		<button style="font-family: 'BMJUA';">계속 쇼핑하기</button> -->
-	 </div>
-	 
+   </form>
+<!--       <button style="font-family: 'BMJUA';">계속 쇼핑하기</button> -->
+    </div>
+    
 <hr>
 <br>
 <br>
