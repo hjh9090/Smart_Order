@@ -140,10 +140,10 @@
 			<h1 align="center">FAQ</h1>
 		</header>
 		<c:if test="${sessionScope.Naver_id == 3162561}">
-			<nav>관리자 글 작성</nav>
+			<nav align="center">관리자 글 작성</nav>
 			<section id="container">
 				<form method="post" action="regfaq">
-					<table>
+					<table align="center">
 						<tr>
 							<td><label for="title">제목</label> <input type="text"
 								id="title" name="title" /></td>
