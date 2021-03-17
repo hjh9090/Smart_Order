@@ -129,7 +129,7 @@
 			</section>
 		</c:if>
 
-	<%-- <c:forEach var="list" items="${list}">
+	 <c:forEach var="list" items="${list}">
 			<table border="1">
 				<tr>
 
@@ -139,8 +139,7 @@
 					<td>${list.faq_q}</td>
 				</tr>
 			</table>
-		</c:forEach> --%>
-
+		</c:forEach> 
 	</div>
 	
 	<br>

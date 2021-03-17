@@ -22,4 +22,5 @@ select * from faq;
 
 delete from faq where faq_f = '테스트';
 
-drop table faq;
+drop table faq cascade constraint purge;
+
