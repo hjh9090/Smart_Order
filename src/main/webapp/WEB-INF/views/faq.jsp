@@ -112,8 +112,8 @@
 					<table>
 						<tbody>
 							<tr>
-								<td><label for="title">제목</label><input type="text"
-									id="title" name="title" /></td>
+								<td><label for="title">제목</label>
+								<input type="text" id="title" name="title" /></td>
 							</tr>
 							<tr>
 								<td><label for="content">내용</label>
@@ -130,7 +130,7 @@
 				</form>
 			</section>
 		</c:if>
-		<c:forEach var="list" items="${list}">
+	<%-- <c:forEach var="list" items="${list}">
 			<table border="1">
 				<tr>
 					<td>${list.faq_f}</td>
@@ -140,7 +140,7 @@
 				</tr>
 
 			</table>
-		</c:forEach>
+		</c:forEach> --%>
 	</div>
 	
 	
