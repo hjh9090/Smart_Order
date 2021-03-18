@@ -169,9 +169,7 @@ $(function () {
 				<button id = "cart" style="font-family: 'BMJUA';">장바구니에 넣기</button></td>
 				</tr>
 	</table>
-<!-- 	<form action="shoping.go" method = "get"> -->
-		
-<!-- 	</form> -->
+
 	
 	<footer class="text-muted py-5">
   <div class="container">

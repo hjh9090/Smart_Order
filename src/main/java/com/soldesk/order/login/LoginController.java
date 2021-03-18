@@ -136,11 +136,14 @@ public class LoginController {
 					String name = (String) payload.get("name");
 					String pictureUrl = (String) payload.get("picture");
 					
-					member.setMem_id(userId);
-					member.setMem_name(name);
-					member.setMem_email(email);
 					
-					Integer result2 = dao.getGoogle(userId);
+					google.setGoo_id(userId);
+					System.out.println(google.getGoo_id().toString());
+					google.setGoo_name(name);
+					google.setGoo_email(email);
+					
+					
+					int result2 = dao.getGoogle(userId);
 					
 					if(result2 == 0) {
 						
