@@ -100,7 +100,7 @@ $(function () {
           <ul class="list-unstyled">
             <li><a href="map.go" class="text-white">주문하러 가기</a></li>
             <li><a href="review" class="text-white">리뷰 게시판</a></li>
-            <c:if test="${sessionScope.Naver_id == null}">
+            <c:if test="${sessionScope.Naver_id == null && sessionScope.Google_id == null}">
             <li><a href="login" class="text-white">로그인</a></li>
             </c:if>
             <c:if test="${sessionScope.Naver_id != null}">
@@ -169,9 +169,7 @@ $(function () {
 				<button id = "cart" style="font-family: 'BMJUA';">장바구니에 넣기</button></td>
 				</tr>
 	</table>
-<!-- 	<form action="shoping.go" method = "get"> -->
-		
-<!-- 	</form> -->
+
 	
 	<footer class="text-muted py-5">
   <div class="container">
