@@ -95,7 +95,7 @@ select * from menu where m_category = 10;
 
 update menu set m_price= 3000, m_name = 'menu1' where m_num = 1;
 
-delete from menu;
+
 
 
 

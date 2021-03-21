@@ -38,7 +38,7 @@ public class LoginController {
 	
 	@Autowired
 	private MemberVO member;
-	private GoogleVO google;
+//	private GoogleVO google;
 	
 	private static final Logger logger  = LoggerFactory.getLogger(LoginController.class);
 	
@@ -137,27 +137,27 @@ public class LoginController {
 					String pictureUrl = (String) payload.get("picture");
 					
 					
-					google.setGoo_id(userId);
-					System.out.println(google.getGoo_id().toString());
-					google.setGoo_name(name);
-					google.setGoo_email(email);
+//					google.setGoo_id(userId);
+//					System.out.println(google.getGoo_id().toString());
+//					google.setGoo_name(name);
+//					google.setGoo_email(email);
 					
 					
-					int result2 = dao.getGoogle(userId);
-					
-					if(result2 == 0) {
+//					int result2 = dao.getGoogle(userId);
+//					
+//					if(result2 == 0) {
 						
-						dao.insertGoogle(google);
+//						dao.insertGoogle(google);
 						request.getSession().setAttribute("Google_id", userId);
 						request.getSession().setAttribute("Google_name", name);
 						request.getSession().setAttribute("Google_email", email);
 						
-					} else if (result2 == 1) {
-						dao.getGoogle(userId);
+//					} else if (result2 == 1) {
+//						dao.getGoogle(userId);
 						request.getSession().setAttribute("Google_id", userId);
 						request.getSession().setAttribute("Google_name", name);
 						request.getSession().setAttribute("Google_email", email);
-					}
+//					}
 					
 				} else {
 				System.out.println("Invalid ID token.");
