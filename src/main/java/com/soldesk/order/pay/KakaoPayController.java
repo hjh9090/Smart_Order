@@ -61,6 +61,7 @@ public class KakaoPayController {
 			
 			//Headers
 			headers.add("Authorization", "KakaoAK" + " cd61dd3490dff67133ce43a2708fa379");
+			//kakao api 키 값은 각자 쓰임새에 맞게 사용해야 한다. admin으로 하면 2개월 후 작동 안됨. => REST API로 사용 할 것
 			headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
 			headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
 			
@@ -75,9 +76,9 @@ public class KakaoPayController {
 			params.add("item_name", name);
 			//수량
 			params.add("quantity", quan);
-			
+			//수량과 물품 가격 합산
 			params.add("total_amount", total_price);
-			
+			//세금 빼고 난 뒤 가격
 			params.add("tax_free_amount", "3990");
 			
 			//승인된 결제 URL
@@ -123,6 +124,7 @@ public class KakaoPayController {
 			
 			//Headers
 			headers.add("Authorization", "KakaoAK" + " cd61dd3490dff67133ce43a2708fa379");
+			//key 값 admin 값으로 입력했음 => 추후 3개월 후 REST API키 값으로 입력
 			headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
 			headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
 			
@@ -191,6 +193,7 @@ public class KakaoPayController {
 			
 			//Headers
 			headers.add("Authorization", "KakaoAK" + " cd61dd3490dff67133ce43a2708fa379");
+			//key 값 admin 값으로 입력했음 => 추후 3개월 후 REST API키 값으로 입력
 			headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
 			headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
 			
@@ -233,7 +236,9 @@ public class KakaoPayController {
 		}
 		
 		return "redirect:" + kakaoready.getNext_redirect_pc_url();
-	
+		//approval => 함수형으로 바꿔서 사용해야 함.
+		
+		
 	}
 	
 	
