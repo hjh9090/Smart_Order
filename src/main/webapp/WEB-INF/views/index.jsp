@@ -54,7 +54,8 @@
 
 <!--  <script type="text/javascript" src="resources/map.js"></script>-->
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ef243eba4a37959f8d19524f4e2209e9&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=07669008276a70614df01a01ed89a5bb&libraries=services"></script>
+<!-- kakao api 키는 자바 스크립트 키로 사용해야한다. => admin으로 하면 2개월 후에 막힘. -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="resources/view.css">
 <script type="text/javascript" src="resources/map.js"></script>
